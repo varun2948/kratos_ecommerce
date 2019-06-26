@@ -14,16 +14,8 @@
                         </header>
                         <div class="panel-body">
                             <div class="position-center">
-                                <form role="form" action="{{ route('admin.slider.store')}}" method="POST" id="form_sample_1" class="form-horizontal" enctype="multipart/form-data">
+                                <form role="form" action="{{ route('admin.advert.store')}}" method="POST" id="form_sample_2" class="form-horizontal" enctype="multipart/form-data">
                             @csrf
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Title</label>
-                                    <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Short Description</label>
-                                    <input type="text" class="form-control" id="shortdescription" name="shortdesc" placeholder="Enter Short Description">
-                                </div>
                                 <div class="form-group">
                                     <label for="exampleInputFile">File input</label>
                                     <input type="file" id="imageupload" name="image">

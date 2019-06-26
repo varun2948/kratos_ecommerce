@@ -26,8 +26,8 @@
                         <span>Advertisement Section</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="general.html">Add Advertisement</a></li>
-                        <li><a href="buttons.html">Edit Advertisement</a></li>
+                        <li><a href="{{url('admin/advert')}}">Add Advertisement</a></li>
+                        <li><a href="#">Edit Advertisement</a></li>
                         <li><a href="buttons.html">Remove Advertisement</a></li>
 
                     </ul>
@@ -66,7 +66,7 @@
 
                     </ul>
                 </li>
-            </ul>            
+            </ul>
         </div>
         <!-- sidebar menu end-->
     </div>

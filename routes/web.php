@@ -51,8 +51,8 @@ Route::group(['prefix' => 'admin/', 'as' => 'admin.', 'middleware' => 'auth'], f
     Route::get('addslider', 				['as' =>'addslider', 	    			'uses'=>'SliderController@addindex']);
 	Route::post('slider/store',				['as'=>'slider.store',					'uses'=>'SliderController@store']);
 
-    Route::get('advert', 				['as' =>'advert', 	    			'uses'=>'SliderController@index']);
-    Route::get('addadvert', 				['as' =>'addadvert', 	    			'uses'=>'SliderController@addindex']);
-	Route::post('addadvert/store',				['as'=>'slider.store',					'uses'=>'SliderController@store']);
+    Route::get('advert', 				['as' =>'advert', 	    			'uses'=>'AdvertController@index']);
+    Route::get('addadvert', 				['as' =>'addadvert', 	    			'uses'=>'AdvertController@addindex']);
+	Route::post('advert/store',				['as'=>'advert.store',					'uses'=>'AdvertController@store']);
 
 });
