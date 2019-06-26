@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-    
-<html>  
+
+<html>
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -27,13 +27,13 @@
         <link rel="stylesheet" type="text/css" href="{{asset('css/jquery.bxslider.css')}}">
 
         <link rel="stylesheet" type="text/css" href="{{asset('css/style.css')}}">
-        
+
         <link href="{{asset('fonts/css2277.css?family=Open+Sans:300,400,600,600i,700,700i')}}" rel="stylesheet">
 
         <link href="{{asset('fonts/css1b12.css?family=Roboto:300,400,400i,500,500i,700')}}" rel="stylesheet">
 
         @yield('css')
-<!--         
+<!--
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"> -->
 
@@ -58,7 +58,7 @@
     @yield('body')
     @include('layout.header')
     @yield('content')
-   
+
     @include('layout.footer')
     </div>
     <a href="#" id="scrollup" title="Scroll to Top">Scroll</a>
@@ -94,6 +94,6 @@
     <script type="text/javascript" src="{{asset('js/jquery.plugin.js')}}"></script>
 
     <script type="text/javascript" src="{{asset('js/jquery.countdown.js')}}"></script>
-      
+
     </body>
 </html>
