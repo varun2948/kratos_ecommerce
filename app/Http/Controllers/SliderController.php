@@ -26,7 +26,9 @@ class SliderController extends Controller
      */
     public function index()
     {
-        return view('dashboard.slider.slider');
+        $data =[];
+		$data['rows'] =Slider::select('*')->get();
+        return view('dashboard.slider.slider',compact('data'));
     }
 
     public function addindex()
@@ -41,19 +43,86 @@ class SliderController extends Controller
     	if($request->hasFile('image')) {
     		$image = $request->file('image');
     		$image_name = rand(4952, 9857).'_'.$image->getClientOriginalName();
-			$image->move(public_path().DIRECTORY_SEPARATOR.'images'.DIRECTORY_SEPARATOR.'slider',$image_name);
+            $image->move(public_path().DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'slider',$image_name);
+            $imagefinalname = 'http://127.0.0.1:8000'.DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'slider'.DIRECTORY_SEPARATOR.$image_name;
+
     	}
         $user = auth()->user();
     	$request->request->add([
     			'title' => $request->get('title'),
     			'short_description' => $request->get('shortdesc'),
     			'status' => $request->get('status') == 'active'?1:0,
-                'image' => $image_name,
+                'image' => $imagefinalname,
                 'sort_order' => $request->get('sortorder'),
     		]);
     	// dd($request->request->all());
     	Slider::create($request->request->all());
     	$request->session()->flash('success_message', 'Slider added Successfully.');
     	return redirect()->route('admin.slider');
+    }
+
+    public function edit(Request $request,$id)
+    {
+        $data= [];
+        // dd($id);
+        $data['row'] = Slider::where('id',$id)->first();
+        // dd($data['row']);
+        if(!$data['row']) {
+            $request->session()->flash('error_message', 'Invalid Request.');
+            return redirect()->route('admin.slider.addslider');
+
+        }
+        $data['row']->status = $data['row']->
+        status == 1?'active':'in-active';
+        return view('dashboard.slider.editslider', compact('data'));
+
+
+    }
+
+    public function update(Request $request,$id)
+    {
+        $data=[];
+        $data['row']= Slider::where('id', $id)->first();
+        if($request->hasFile('image')){
+            $image= $request->file('image');
+            $image_data= $data['row']->image;
+
+            $image_name= rand(4953,9857).'_'.$image->getClientOriginalName();
+            $imagefinalname='http://127.0.0.1:8000'.DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'slider'.DIRECTORY_SEPARATOR.$image_name;
+            $image->move(public_path().DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'slider',$image_name);
+            if($data['row']->image && file_exists($image_data)){
+                unlink($image_data);
+            }
+        }
+        $user= auth()->user();
+        $request->request->add([
+            'title' => $request->get('title'),
+            'short_description' => $request->get('shortdesc'),
+            // 'createdby' => $user->id,
+            'image'=> isset($image_name)?$imagefinalname:$data['row']->image,
+            'status' => $request->get('status') == 'active'?1:0,
+            'sortorder'=>$request->get('sortorder'),
+
+        ]);
+        $data['row']->update($request->request->all());
+        $request->session()->flash('success_message','Slider updated Sucessfully');
+        return redirect()->route('admin.slider');
+    }
+
+    public function delete(Request $request,$id)
+    {
+        $data=[];
+        $data['row']= Slider::where('id', $id)->first();
+
+        if(!$data['row']){
+            $request->session()->flash('error_message', 'Invalid Request');
+            return redirect()->route('admin.slider');
+        }
+        if($data['row']->image && file_exists(public_path().DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'slider'.DIRECTORY_SEPARATOR.$data['row']->image)) {
+            unlink(public_path().DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'slider'.DIRECTORY_SEPARATOR.$data['row']->image);
+        }
+        $data['row']->delete();
+        $request->session()->flash('success_message', 'Slider Deleted Sucessfully');
+        return redirect()->route('admin.slider');
     }
 }

@@ -6,12 +6,13 @@
     <section class="wrapper">
         <!-- page start-->
         @if(session()->has('success_message'))
-        <div class="alert alert-success alert-dismissible">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-            <h4><i class="icon fa fa-check"></i> Success!
-           		{{ session()->get('success_message') }} </h4>
-        </div>
+            <div class="alert alert-success alert-dismissible">
+                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+                <h4><i class="icon fa fa-check"></i> Success!
+                    {{ session()->get('success_message') }} </h4>
+            </div>
         @endif
+
         <div class="row">
             <div class="col-sm-12">
                 <section class="panel">
@@ -27,7 +28,7 @@
                         <div class="adv-table editable-table ">
                             <div class="clearfix">
                                 <div class="btn-group">
-                                    <a href={{url('/admin/addadvert')}}><button id="editable-sample_new" class="btn btn-primary">
+                                    <a href={{url('/admin/addcategory')}}><button id="editable-sample_new" class="btn btn-primary">
                                         Add New <i class="fa fa-plus"></i>
                                     </button>
                                     </a>
@@ -47,9 +48,9 @@
                                 <thead>
                                 <tr>
                                     <th>Id</th>
+                                    <th>Title</th>
                                     <th>Image</th>
-                                    <th>Status</th>
-                                    <th>Sort Order</th>
+                                    <th>Slug</th>
                                     <th>Created at</th>
                                     <th>Updated at</th>
                                     <th>Edit</th>
@@ -62,15 +63,15 @@
                                     @foreach($data['rows'] as $key => $row)
                                 <tr class="">
                                     <td>{{$row['id']}}</td>
+                                    <td>{{$row['title']}}</td>
                                     <td><img src="{{$row['image']}}" height="80px" width="70px"></td>
-                                    <td>{{$row['sortorder']}}</td>
-                                    <td>{{$row['status']}}</td>
+                                    <td>{{$row['slug']}}</td>
                                     <td>{{$row['created_at']}}</td>
                                     <td>{{$row['updated_at']}}</td>
-                                    <td><a class="btn btn-primary edit" onclick="return confirm('Are you sure to Edit Advertisement?');"
-                                    href="{{ route('admin.advert.edit',['id' => $row->id]) }}">Edit</a></td>
-                                    <td><a class="btn btn-danger delete" onclick="return confirm('Are you sure to Delete Advertisement?');"
-                                     href="{{ route('admin.advert.delete',['id' => $row->id]) }}">Delete</a></td>
+                                    <td><a class="edit" onclick="return confirm('Are you sure to Edit Client?');"
+                                    href="{{ route('admin.category.editcategory',['id' => $row->id]) }}">Edit</a></td>
+                                    <td><a class="delete" onclick="return confirm('Are you sure to Delete Client?');"
+                                     href="{{ route('admin.category.delete',['id' => $row->id]) }}">Delete</a></td>
                                 </tr>
                                 {{ $i ++}}
                                     @endforeach

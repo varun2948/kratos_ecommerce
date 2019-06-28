@@ -5,7 +5,13 @@
 <section id="main-content">
     <section class="wrapper">
         <!-- page start-->
-
+        @if(session()->has('success_message'))
+        <div class="alert alert-success alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
+            <h4><i class="icon fa fa-check"></i> Success!
+           		{{ session()->get('success_message') }} </h4>
+        </div>
+        @endif
         <div class="row">
             <div class="col-sm-12">
                 <section class="panel">
@@ -53,114 +59,26 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @php $i = 1; @endphp
+                                @if($data['rows'])
+                                    @foreach($data['rows'] as $key => $row)
                                 <tr class="">
-                                    <td>Jonathan</td>
-                                    <td>Smith</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td class="center">Lorem ipsume</td>
-                                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                                    <td><a class="delete" href="javascript:;">Delete</a></td>
+                                    <td>{{$row['id']}}</td>
+                                    <td>{{$row['title']}}</td>
+                                    <td>{{$row['short_description']}}</td>
+                                    <td><img src="{{$row['image']}}" height="80px" width="70px"></td>
+                                    <td>{{$row['status']}}</td>
+                                    <td>{{$row['sortorder']}}</td>
+                                    <td>{{$row['created_at']}}</td>
+                                    <td>{{$row['updated_at']}}</td>
+                                    <td><a class="btn btn-primary edit" onclick="return confirm('Are you sure to Edit Slider?');"
+                                    href="{{ route('admin.slider.edit',['id' => $row->id]) }}">Edit</a></td>
+                                    <td><a class="btn btn-danger delete" onclick="return confirm('Are you sure to Delete Slider?');"
+                                     href="{{ route('admin.slider.delete',['id' => $row->id]) }}">Delete</a></td>
                                 </tr>
-                                <tr class="">
-                                    <td>Mojela</td>
-                                    <td>Firebox</td>
-                                    <td>567</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td class="center">new user</td>
-                                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                                </tr>
-                                <tr class="">
-                                    <td>Akuman </td>
-                                    <td> Dareon</td>
-                                    <td>987</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td class="center">ipsume dolor</td>
-                                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                                </tr>
-                                <tr class="">
-                                    <td>Theme</td>
-                                    <td>Bucket</td>
-                                    <td>342</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td class="center">Good Org</td>
-                                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                                </tr>
-                                <tr class="">
-                                    <td>Jhone</td>
-                                    <td> Doe</td>
-                                    <td>345</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td class="center">super user</td>
-                                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                                </tr>
-                                <tr class="">
-                                    <td>Margarita</td>
-                                    <td>Diar</td>
-                                    <td>456</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td class="center">goolsd</td>
-                                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                                </tr>
-                                <tr class="">
-                                    <td>Jhon Doe</td>
-                                    <td>Jhon Doe </td>
-                                    <td>1234</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td class="center"> user</td>
-                                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                                </tr>
-                                <tr class="">
-                                    <td>Helena</td>
-                                    <td>Fox</td>
-                                    <td>456</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td class="center"> Admin</td>
-                                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                                </tr>
-                                <tr class="">
-                                    <td>Aishmen</td>
-                                    <td> Samuel</td>
-                                    <td>435</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td>3455</td>
-                                    <td class="center">super Admin</td>
-                                    <td><a class="edit" href="javascript:;">Edit</a></td>
-                                    <td><a class="delete" href="javascript:;">Delete</a></td>
-                                </tr>
+                                {{ $i ++}}
+                                    @endforeach
+                                @endif
                                 </tbody>
                             </table>
                         </div>

@@ -2,65 +2,67 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Products;
 use Illuminate\Http\Request;
-use App\Product;
+use App\Http\Requests\Products\AddFromValidation;
 
 class ProductController extends Controller
 {
 
-public function create()
-{
-        
-    return view('products.create');
-}
-
-public function store(Request $request)
-{
-    $product = $this->validate(request(),[
-        'name'=> 'required',
-        'price'=> 'required|numeric',
-        'datepicker'=> 'required|date'
-    ]);
-
-    Product::create($product);
-
-    return back()->with('success', 'Product has been added');;
-}
-public function index()
-{
-    $products = Product::all()->toArray();
-    return view('products.index', compact('products'));
-}
-
-
-public function edit($id)
-{
-    $product = Product::find($id);
-    return view('products.edit',compact('product','id'));
-}
-
-public function update(Request $request, $id)
-{
-    $product = Product::find($id);
-    $this->validate(request(),[
-        'name' => 'required',
-        'price' => 'required|numeric',
-        'datepicker' => 'required|date'
-    ]);
-    $product->name = $request->get('name');
-    $product->price = $request->get('price');
-    $product->datepicker = $request->get('datepicker');
-    $product->save();
-    return redirect('products')->with('success', 'Product has been Update');
-}
-
-public function destroy($id)
+     /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
     {
-        $product = Product::find($id);
-        $product->delete();
-        return redirect('products')->with('success','Product has been  deleted');
+        $this->middleware('auth');
+    }
+
+    /**
+     * Show the application dashboard.
+     *
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function index()
+    {
+        $data =[];
+		$data['rows'] =Products::select('*')->get();
+        return view('dashboard.product.product',compact('data'));
+    }
+
+    public function addindex()
+    {
+        return view('dashboard.product.addproduct');
     }
 
 
-}
+    public function store(AddFromValidation $request)
+    {
+    	//dd($request->all());
+    	if($request->hasFile('image')) {
+    		$image = $request->file('image');
+    		$image_name = rand(4952, 9857).'_'.$image->getClientOriginalName();
+			$image->move(public_path().DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'product',$image_name);
+            $imagefinalname = 'http://127.0.0.1:8000'.DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'product'.DIRECTORY_SEPARATOR.$image_name;
 
+    	}
+        $user = auth()->user();
+    	$request->request->add([
+    			'title' => $request->get('title'),
+    			'short_description' => $request->get('short_description'),
+                'feature_image' => $imagefinalname,
+    			'price' => $request->get('price'),
+    			'discounted_price' => $request->get('discounted_price'),
+    			'review' => $request->get('review'),
+    			'specific_description' => $request->get('specific_description'),
+    			'long_description' => $request->get('long_description'),
+    			'each_feature_product' => $request->get('each_feature_product'),
+    			'discounted_percentage' => $request->get('discounted_percentage'),
+    		]);
+    	// dd($request->request->all());
+    	Products::create($request->request->all());
+    	$request->session()->flash('success_message', 'Product added Successfully.');
+    	return redirect()->route('admin.product');
+    }
+}
