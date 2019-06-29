@@ -124,7 +124,7 @@
 
                 <strong class="logo">
 
-                    <a href="#"><img src="{{asset('images/logo.jpg')}}" alt="logo"></a>
+                    <a href="#"><img src="{{asset('images/deepaklogo.jpg')}}" style="border: 2px solid #c54141;width: 134px;border-radius: 30px;" alt="logo"></a>
 
                 </strong><!-- logo -->
 
@@ -648,14 +648,14 @@
 
                         </li>
 
-                        <li class="menu-item-has-children ">
+                        <!-- <li class="menu-item-has-children ">
 
                             <a href="{{url('/shop')}}" class="dropdown-toggle">Shop</a>
 
                             <span class="toggle-submenu hidden-md"></span>
 
 
-                        </li>
+                        </li> -->
 
                         <li class="menu-item-has-children ">
 

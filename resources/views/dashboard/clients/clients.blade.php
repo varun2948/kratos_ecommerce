@@ -50,7 +50,8 @@
                                     <th>Id</th>
                                     <th>Title</th>
                                     <th>Image</th>
-                                    <th>Slug</th>
+                                    <th>Status</th>
+                                    <th>Sort Order</th>
                                     <th>Created at</th>
                                     <th>Updated at</th>
                                     <th>Edit</th>
@@ -65,7 +66,8 @@
                                     <td>{{$row['id']}}</td>
                                     <td>{{$row['title']}}</td>
                                     <td><img src="{{$row['image']}}" height="80px" width="70px"></td>
-                                    <td>{{$row['slug']}}</td>
+                                    <td>{{$row['status']}}</td>
+                                    <td>{{$row['sortorder']}}</td>
                                     <td>{{$row['created_at']}}</td>
                                     <td>{{$row['updated_at']}}</td>
                                     <td><a class="edit" href="javascript:;">Edit</a></td>

@@ -1,6 +1,14 @@
 @extends('layout.app')
-@section('content')
 
+@section('css')
+<style>
+.owl-stage{
+    left: 156px;
+}
+</style>
+@endsection
+
+@section('content')
 <main class="site-main">
 
             <div class="container">
@@ -27,7 +35,7 @@
 
                                 <div class="image-preview-container image-thick-box image_preview_container">
 
-                                    <img id="img_zoom" data-zoom-image="{{asset('images/detail/thick-box-1.jpg')}}" src="{{asset('images/detail/thick-box.jpg')}}" alt="">
+                                    <img id="img_zoom" data-zoom-image="{{ !empty($data['row']->feature_image) ? $data['row']['feature_image']:'' }}" src="{{ !empty($data['row']->feature_image) ? $data['row']['feature_image']:'' }}" alt="">
 
                                     <a href="#" class="btn-zoom open_qv"><i class="fa fa-search" aria-hidden="true"></i></a>
 
@@ -37,12 +45,12 @@
 
                                     <div id="thumbnails" class="thumbnails_carousel owl-carousel nav-style4" data-nav="true" data-autoplay="false" data-dots="false" data-loop="true" data-margin="10" data-responsive='{"0":{"items":3},"480":{"items":5},"600":{"items":5},"1000":{"items":5}}'>
 
-                                        <a href="#" data-image="{{asset('images/detail/thick-box-1.jpg')}}" data-zoom-image="assets/images/detail/thick-box-1.jpg">
+                                        <a href="#" data-image="{{ !empty($data['row']->feature_image) ? $data['row']['feature_image']:'' }}" data-zoom-image="{{ !empty($data['row']->feature_image) ? $data['row']['feature_image']:'' }}">
 
-                                            <img src="{{asset('images/detail/i1.jpg')}}" data-large-image="assets/images/detail/thick-box-1.jpg" alt="i1">
+                                            <img src="{{ !empty($data['row']->feature_image) ? $data['row']['feature_image']:'' }}" data-large-image="{{ !empty($data['row']->feature_image) ? $data['row']['feature_image']:'' }}" alt="i1">
 
                                         </a>
-                                        <a href="#" data-image="{{asset('images/detail/thick-box-1.jpg')}}" data-zoom-image="{{asset('images/detail/thick-box-1.jpg')}}">
+                                        <!-- <a href="#" data-image="{{asset('images/detail/thick-box-1.jpg')}}" data-zoom-image="{{asset('images/detail/thick-box-1.jpg')}}">
 
                                             <img src="{{asset('images/detail/i2.jpg')}}" data-large-image="{{asset('images/detail/thick-box-1.jpg')}}" alt="i1">
 
@@ -61,7 +69,7 @@
 
                                             <img src="{{asset('images/detail/i1.jpg')}}" data-large-image="{{asset('images/detail/thick-box-1.jpg')}}" alt="i1">
 
-                                        </a>
+                                        </a> -->
 
                                     </div>
 
@@ -75,7 +83,7 @@
 
                             <div class="product-info-main">
 
-                                <div class="product-name"><a href="#">UHD 22-inch Screen lit Monitorss Burds</a></div>
+                                <div class="product-name"><a href="#">{{ !empty($data['row']->title) ? $data['row']['title']:'' }}</a></div>
 
                                 <span class="star-rating">
 
@@ -89,21 +97,13 @@
 
                                     <i class="fa fa-star" aria-hidden="true"></i>
 
-                                    <span class="review">5 Review(s)</span>
+                                    <span class="review">{{ !empty($data['row']->review) ? $data['row']['review']:'' }} Review(s)</span>
 
                                 </span>
 
                                 <div class="product-infomation">
 
-                                    22” class screen full LED TV<br>
-
-                                    Hight precision lens provides a clearer picture and a better view.<br>
-
-                                    With stand: 50.23”W x 30.1”H x 15.5”D<br>
-
-                                    Dispay type: Resolution: 1170 x 768<br>
-
-                                    Motion Rate: 130
+                                {{ !empty($data['row']->specific_description) ? $data['row']['specific_description']:'' }}
 
                                 </div>
 
@@ -148,9 +148,9 @@
 
                                 <span class="price">
 
-                                    <ins>Rs.229.00</ins>
+                                    <ins>{{ !empty($data['row']->discounted_price) ? $data['row']['discounted_price']:'' }}</ins>
 
-                                    <del>Rs.259.00</del>
+                                    <del>{{ !empty($data['row']->price) ? $data['row']['price']:'' }}</del>
 
                                 </span>
 
@@ -171,8 +171,13 @@
                                 </div>
 
                                 <div class="single-add-to-cart">
-
-                                    <a href="#" class="btn-add-to-cart">Add to cart</a>
+                                    <form action="{{ route('cart.store') }}" method="POST">
+                                    @csrf
+                                        <input type="hidden" name="id" value="{{ $data['row']['id']}}">
+                                        <input type="hidden" name="title" value="{{ $data['row']['title']}}">
+                                        <input type="hidden" name="discounted_price" value="{{ $data['row']['discounted_price']}}">
+                                        <button type="submit" class="btn-add-to-cart">Add To Cart</button>
+                                    </form>
 
                                     <a href="#" class="compare"><i class="flaticon-refresh-square-arrows"></i>Compare</a>
 
@@ -210,12 +215,7 @@
 
                             <div class="box-content">
 
-                                <p>Lorem ipsum dolor sit amet, an munere tibique consequat mel, congue albucius no qui, at everti meliore erroribus sea. Vero graeco cotidieque ea duo, in eirmod insolens interpretaris nam. Pro at nostrud percipit definitiones, eu tale porro cum. Sea ne accusata voluptatibus. Ne cum falli dolor voluptua, duo ei sonet choro facilisis, labores officiis torquatos cum ei.</p>
-
-                                <p>Cum altera mandamus in, mea verear disputationi et. Vel regione discere ut, legere expetenda ut eos. In nam nibh invenire similique. Atqui mollis ea his, ius graecis accommodare te. No eam tota nostrum cotidieque. Est cu nibh clita. Sed an nominavi, et duo corrumpit constituto, duo id rebum lucilius. Te eam iisque deseruisse, ipsum euismod his at. Eu putent habemus voluptua sit, sit cu rationibus scripserit, modus voluptaria ex per. Aeque dicam consulatu eu his, probatus neglegentur disputationi sit et. Ei nec ludus epicuri petentium, vis appetere maluisset ad. Et hinc exerci utinam cum. Sonet saperet nominavi est at, vel eu sumo tritani. Cum ex minim legere.</p>
-
-                                <p>Eos cu utroque inermis invenire, eu pri alterum antiopam. Nisl erroribus definitiones nec an, ne mutat scripserit est. Eros veri ad pri. An soleat maluisset per. Has eu idque similique, et blandit scriptorem necessitatibus mea. Vis quaeque ocurreret ea.cu bus scripserit, modus voluptaria ex per. Aeque dicam consulatu eu his, probatus neentur disputationi sit et. Ei nec ludus epicuri petentium, vis appetere maluisset ad. Et hinc exerci utinam cum. Sonet saperet nominavi est at, vel eu sumo tritani.</p>
-
+                                <p>{{ !empty($data['row']->long_description) ? $data['row']['long_description']:'' }}</p>
                             </div>
 
                         </div>

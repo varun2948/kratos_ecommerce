@@ -24,9 +24,9 @@ class AddFromValidation extends FormRequest
     public function rules()
     {
         return [
-                'title' => 'required | unique:clients,title',
-                'status' => 'required | unique:clients,status',
-                'image' => 'required | mimes:jpeg,bmp,png'
+                'title' => 'required',
+                'status' => 'required',
+                // 'image' => 'required | mimes:jpeg,bmp,png'
         ];
     }
 }

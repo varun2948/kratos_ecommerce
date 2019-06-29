@@ -2,15 +2,36 @@
 @section('content')
 
 <main class="site-main shopping-cart">
+
         <div class="container">
             <ol class="breadcrumb-page">
                 <li><a href="#">Home </a></li>
                 <li class="active"><a href="#">Shopping Cart</a></li>
             </ol>
         </div>
+        
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
+                
+                @if(session()->has('success_message'))
+                    <div class="alert alert-sucess">
+                            {{session()->get('success_message')}}
+                    </div>
+                @endif
+
+                @if(count($errors)> 0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+
+                @if(Cart::count() >0)
+                <h2>{{Cart::count()}} item(s) in Shopping Cart</h2>
                     <form class="form-cart">
                         <div class="table-cart">
                             <table class="table">
@@ -25,14 +46,15 @@
                                 </tr>
                                 </thead>
                                 <tbody>
+                                @foreach (Cart::content() as $item)
                                 <tr>
-                                    <td class="tb-image"><a href="#" class="item-photo"><img src="{{asset('images/cart1.jpg')}}"
+                                    <td class="tb-image"><a href="{{ route('productdetail',['id' => $item->id])}}" class="item-photo"><img src="{{asset('images/cart1.jpg')}}"
                                                                                             alt="cart"></a></td>
                                     <td class="tb-product">
-                                        <div class="product-name"><a href="#">Smartphone MTK6737 Quad Core.</a></div>
+                                        <div class="product-name"><a href="#">{{$item->name}}</a></div>
                                     </td>
                                     <td class="tb-price">
-                                        <span class="price">Rs.229.00</span>
+                                        <span class="price">Rs.{{$item->price}}</span>
                                     </td>
                                     <td class="tb-qty">
                                         <div class="quantity">
@@ -45,41 +67,14 @@
                                         </div>
                                     </td>
                                     <td class="tb-total">
-                                        <span class="price">Rs.229.00</span>
+                                        <span class="price">Rs.{{$item->price}}</span>
                                     </td>
                                     <td class="tb-remove">
                                         <a href="#" class="action-remove"><span><i class="fa fa-times"
                                                                                   aria-hidden="true"></i></span></a>
                                     </td>
                                 </tr>
-                                <tr>
-                                    <td class="tb-image"><a href="#" class="item-photo"><img src="{{asset('images/cart2.jpg')}}"
-                                                                                            alt="cart"></a>
-                                    <td class="tb-product">
-                                        <div class="product-name"><a href="#">Acer's Aspire S7 is a thin and portable
-                                            laptop</a></div>
-                                    </td>
-                                    <td class="tb-price">
-                                        <span class="price">Rs.229.00</span>
-                                    </td>
-                                    <td class="tb-qty">
-                                        <div class="quantity">
-                                            <div class="buttons-added">
-                                                <input type="text" value="1" title="Qty" class="input-text qty text"
-                                                       size="1">
-                                                <a href="#" class="sign plus"><i class="fa fa-plus"></i></a>
-                                                <a href="#" class="sign minus"><i class="fa fa-minus"></i></a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                    <td class="tb-total">
-                                        <span class="price">Rs.229.00</span>
-                                    </td>
-                                    <td class="tb-remove">
-                                        <a href="#" class="action-remove"><span><i class="fa fa-times"
-                                            aria-hidden="true"></i></span></a>
-                                    </td>
-                                </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -96,6 +91,10 @@
                         </div>
                     </form>
                 </div>
+                @else
+                
+                <div class="col-md-9"><h3>No Item In Cart</h3></div>
+                @endif
                 <div class="col-md-3">
                     <div class="order-summary">
                         <h4 class="title-shopping-cart">Order Summary</h4>

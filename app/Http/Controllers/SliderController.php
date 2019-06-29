@@ -86,7 +86,7 @@ class SliderController extends Controller
         if($request->hasFile('image')){
             $image= $request->file('image');
             $image_data= $data['row']->image;
-
+            
             $image_name= rand(4953,9857).'_'.$image->getClientOriginalName();
             $imagefinalname='http://127.0.0.1:8000'.DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'slider'.DIRECTORY_SEPARATOR.$image_name;
             $image->move(public_path().DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'slider',$image_name);

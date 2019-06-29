@@ -41,11 +41,10 @@
 Auth::routes();
 
 
-
 Route::group(['prefix' => 'admin/', 'as' => 'admin.', 'middleware' => 'auth'], function (){
 
-	// Route::get('home', 				        ['as' =>'home', 	    			    'uses'=>'HomeController@index']);
-    Route::get('/', 				                ['as' =>'dashboard', 	    			'uses'=>'HomeController@index']);
+    Route::get('', 				            ['as' =>'dashboard', 	    			'uses'=>'HomeController@index']);
+    Route::get('admin', 				            ['as' =>'dashboard', 	    			'uses'=>'HomeController@index']);
 
     Route::get('slider', 				            ['as' =>'slider', 	    			    'uses'=>'SliderController@index']);
     Route::get('addslider', 				        ['as' =>'addslider', 	    			'uses'=>'SliderController@addindex']);
@@ -70,13 +69,41 @@ Route::group(['prefix' => 'admin/', 'as' => 'admin.', 'middleware' => 'auth'], f
     Route::get('category/delete/{id}',				['as'=>'category.delete',				'uses'=>'CategoryController@delete']);
     Route::post('category/update/{id}',		        ['as'=>'category.update',				'uses' =>'CategoryController@update']);
 
-    Route::get('product', 				            ['as' =>'product', 	    			     'uses'=>'ProductController@index']);
-    Route::get('addproduct', 				        ['as' =>'addproduct', 	    			 'uses'=>'ProductController@addindex']);
-	Route::post('product/store',				    ['as'=>'product.store',					 'uses'=>'ProductController@store']);
+    Route::get('products', 				            ['as' =>'products', 	    			 'uses'=>'ProductsController@index']);
+    Route::get('addproducts', 				        ['as' =>'addproducts', 	    			 'uses'=>'ProductsController@addindex']);
+    Route::post('products/store',				        ['as'=>'products.store',			     'uses'=>'ProductsController@store']);
+    Route::get('products/edit/{id}',                    ['as'=>'products.edit',			         'uses'=>'ProductsController@edit']);
+    Route::get('products/delete/{id}',				['as'=>'products.delete',				 'uses'=>'ProductsController@delete']);
+    Route::post('products/update/{id}',		        ['as'=>'products.update',				 'uses' =>'ProductsController@update']);
+
 
 
     Route::get('clients', 				            ['as' =>'clients', 	    			     'uses'=>'ClientsController@index']);
     Route::get('addclients', 				        ['as' =>'addclients', 	    			 'uses'=>'ClientsController@addindex']);
 	Route::post('clients/store',				    ['as'=>'clients.store',					 'uses'=>'ClientsController@store']);
+    Route::get('clients/edit/{id}',                 ['as'=>'clients.edit',			         'uses'=>'ClientsController@edit']);
+    Route::get('clients/delete/{id}',				['as'=>'clients.delete',				 'uses'=>'ClientsController@delete']);
+    Route::post('clients/update/{id}',		        ['as'=>'clients.update',				 'uses' =>'ClientsController@update']);
 
 });
+
+Route::get('/', 				                ['as' =>'front', 	    			'uses'=>'FrontController@index']);
+// Route::get('testcont/pdetails/{id}', 		['as' =>'testcont.pdetails', 	    'uses'=>'FrontController@testcont']);
+Route::get('productdetail/{id}', 		['as' =>'productdetail', 	    'uses'=>'FrontController@productdetail']);
+Route::get('/shop', 		['as' =>'shop', 	    'uses'=>'FrontController@shopview']);
+// Route::get('/cart', 		['as' =>'cart', 	    'uses'=>'FrontController@cartview']);
+Route::get('/contact', 		['as' =>'contact', 	    'uses'=>'FrontController@contactview']);
+
+Route::get('/cart', 		['as' =>'cart.index', 	    'uses'=>'CartController@index']);
+Route::post('/cart', 		['as' =>'cart.store', 	    'uses'=>'CartController@store']);
+
+Route::get('empty', 		['as' =>'cart.empty', 	    'uses'=>'CartController@empty']);
+
+
+
+
+
+
+// Route::get('/add-to-cart/{id}', ['as' =>'product.addToCart', 'uses'=>'ProductsController@getAddToCart']);
+
+// Route::get('/login', 		['as' =>'login', 	    'uses'=>'FrontController@userloginview']);

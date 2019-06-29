@@ -40,7 +40,7 @@ class ClientsController extends Controller
 
     public function store(AddFromValidation $request)
     {
-    	//dd($request->all());
+    	// dd('Something');
     	if($request->hasFile('image')) {
     		$image = $request->file('image');
     		$image_name = rand(4952, 9857).'_'.$image->getClientOriginalName();

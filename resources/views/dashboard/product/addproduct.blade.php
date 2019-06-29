@@ -14,7 +14,7 @@
                         </header>
                         <div class="panel-body">
                             <div class="position-center">
-                                <form role="form" action="{{ route('admin.product.store')}}" method="POST" id="form_sample_3" class="form-horizontal" enctype="multipart/form-data">
+                                <form role="form" action="{{ route('admin.products.store')}}" method="POST" id="form_sample_3" class="form-horizontal" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
                                     <label for="title">Title</label>

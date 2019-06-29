@@ -27,7 +27,7 @@
                         <div class="adv-table editable-table ">
                             <div class="clearfix">
                                 <div class="btn-group">
-                                    <a href={{url('/admin/addproduct')}}><button id="editable-sample_new" class="btn btn-primary">
+                                    <a href={{url('/admin/addproducts')}}><button id="editable-sample_new" class="btn btn-primary">
                                         Add New <i class="fa fa-plus"></i>
                                     </button>
                                     </a>
@@ -52,10 +52,11 @@
                                     <th>Feature Image</th>
                                     <th>Price</th>
                                     <th>Discounted Price</th>
-                                    <th>Review</th>
+                                    <th>Specific Description</th>
                                     <th>Long Description</th>
                                     <th>Each Feature Product</th>
                                     <th>Discounted Percentage</th>
+                                    <th>Review</th>
                                     <th>Created at</th>
                                     <th>Updated at</th>
                                     <th>Edit</th>
@@ -70,17 +71,20 @@
                                     <td>{{$row['id']}}</td>
                                     <td>{{$row['title']}}</td>
                                     <td>{{$row['short_description']}}</td>
-                                    <td><img src="{{$row['image']}}" height="80px" width="70px"></td>
+                                    <td><img src="{{$row['feature_image']}}" height="80px" width="70px"></td>
                                     <td>{{$row['price']}}</td>
                                     <td>{{$row['discounted_price']}}</td>
                                     <td>{{$row['specific_description']}}</td>
                                     <td>{{$row['long_description']}}</td>
                                     <td>{{$row['each_feature_product']}}</td>
                                     <td>{{$row['discounted_percentage']}}</td>
+                                    <td>{{$row['review']}}</td>
                                     <td>{{$row['created_at']}}</td>
                                     <td>{{$row['updated_at']}}</td>
-                                    <td><a class="btn btn-primary edit" href="javascript:;">Edit</a></td>
-                                    <td><a class="btn btn-danger delete" href="javascript:;">Delete</a></td>
+                                    <td><a class="btn btn-primary edit" onclick="return confirm('Are you sure to Edit Product?');"
+                                    href="{{ route('admin.products.edit',['id' => $row->id]) }}">Edit</a></td>
+                                    <td><a class="btn btn-danger delete" onclick="return confirm('Are you sure to Delete Product?');"
+                                     href="{{ route('admin.products.delete',['id' => $row->id]) }}">Delete</a></td>
                                 </tr>
                                 {{ $i ++}}
                                     @endforeach
