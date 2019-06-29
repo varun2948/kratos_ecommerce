@@ -18,7 +18,7 @@ class CreateProductsTable extends Migration
             $table->string('title',255);
             $table->longText('short_description');
             $table->string('feature_image',255);
-            $table->string('price',255);
+            $table->integer('price',80);
             $table->string('discounted_price',255);
             $table->string('review',255);
             $table->longText('specific_description');
