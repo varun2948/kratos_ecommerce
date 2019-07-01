@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 // use App\Models\Products;
 use Gloudemans\Shoppingcart\Facades\Cart;
+
 use Illuminate\Http\Request;
 use App\Http\Requests\Products\AddFromValidation;
 
@@ -19,7 +20,7 @@ class CartController extends Controller
     */
    public function __construct()
    {
-       $this->middleware('auth');
+
    }
 
    /**
@@ -29,7 +30,6 @@ class CartController extends Controller
     */
    public function index()
    {
-
        return view('Products.cart',compact('data'));
    }
 
@@ -38,7 +38,15 @@ class CartController extends Controller
 
    public function store(Request $request)
    {
-        Cart::add($request->id, $request->title,1, $request->discounted_price);
+
+       $duplicates = Cart::search(function($cartItem, $rowId) use ($request){
+            return $cartItem->id === $request->id;
+       });
+
+       if($duplicates->isNotEmpty()){
+           return redirect()->route('cart.index')->with('success_message', 'Item is Already in Your Cart!');
+       }
+        Cart::add($request->id, $request->title,1, $request->discounted_price, ['url' => $request->image_url]);
 
         $request->session()->flash('success_message','Item was added To Cart');
         return redirect()->route('cart.index');
@@ -47,11 +55,15 @@ class CartController extends Controller
    public function empty()
    {
     Cart::destroy();
+    return back()->with('success_message', 'Cleared Cart List!');
    }
 
-   public function delete(Request $request,$id)
+   public function destroy($id)
    {
 
+    Cart::remove($id);
+
+    return back()->with('success_message', 'Item has Been Removed!');
    }
 
    public function edit(Request $request,$id)

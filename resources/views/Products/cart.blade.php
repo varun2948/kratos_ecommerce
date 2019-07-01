@@ -9,11 +9,11 @@
                 <li class="active"><a href="#">Shopping Cart</a></li>
             </ol>
         </div>
-        
+
         <div class="container">
             <div class="row">
                 <div class="col-md-9">
-                
+
                 @if(session()->has('success_message'))
                     <div class="alert alert-sucess">
                             {{session()->get('success_message')}}
@@ -48,7 +48,7 @@
                                 <tbody>
                                 @foreach (Cart::content() as $item)
                                 <tr>
-                                    <td class="tb-image"><a href="{{ route('productdetail',['id' => $item->id])}}" class="item-photo"><img src="{{asset('images/cart1.jpg')}}"
+                                    <td class="tb-image"><a href="{{ route('productdetail',['id' => $item->id])}}" class="item-photo"><img src="{{$item->options->url}}"
                                                                                             alt="cart"></a></td>
                                     <td class="tb-product">
                                         <div class="product-name"><a href="#">{{$item->name}}</a></div>
@@ -69,46 +69,65 @@
                                     <td class="tb-total">
                                         <span class="price">Rs.{{$item->price}}</span>
                                     </td>
-                                    <td class="tb-remove">
-                                        <a href="#" class="action-remove"><span><i class="fa fa-times"
-                                                                                  aria-hidden="true"></i></span></a>
-                                    </td>
+                                    </form>
+                                    <form action="{{ route('cart.destroy', $item->rowId) }}" method="POST">
+                                        <td class="tb-remove">
+                                            @csrf
+                                            {{ method_field('DELETE')}}
+                                            <button type="submit" class="cart-options">Remove</button>
+
+                                        <!-- <a href="#" class="action-remove"><span><i class="fa fa-times"
+                                                                                  aria-hidden="true"></i></span></a> -->
+                                        </td>
+                                    </form>
                                 </tr>
                                 @endforeach
                                 </tbody>
                             </table>
                         </div>
                         <div class="cart-actions">
-                            <button type="submit" class="btn-continue">
+                            <a href="{{ route('shop')}}" class="button">
                                 <span>Continue Shopping</span>
-                            </button>
+                            </a>
                             <button type="submit" class="btn-clean">
                                 <span>Update Shopping Cart</span>
                             </button>
-                            <button type="submit" class="btn-update">
+                            <form action="{{ route('cart.empty') }}" method="GET">
+
+                                @csrf
+                                <button type="submit" class="btn-update">Clear Shopping Cart</button>
+
+                            </form>
+                            <!-- <button type="submit" class="btn-update">
                                 <span>Clear Shopping Cart</span>
-                            </button>
+                            </button> -->
                         </div>
-                    </form>
+
                 </div>
                 @else
-                
-                <div class="col-md-9"><h3>No Item In Cart</h3></div>
+
+                <div class="col-md-9">
+                    <h3>No Item In Cart</h3>
+                    <a href="{{ url('/shop')}}" class="button">
+                                Continue Shopping
+                    </a>
+                </div>
+
                 @endif
                 <div class="col-md-3">
                     <div class="order-summary">
                         <h4 class="title-shopping-cart">Order Summary</h4>
                         <div class="checkout-element-content">
-                            <span class="order-left">Subtotal:<span>Rs.458.00</span></span>
+                            <span class="order-left">Subtotal:<span>Rs.{{Cart::subtotal()}}</span></span>
                             <span class="order-left">Shipping:<span>Free Shipping</span></span>
-                            <span class="order-left">Total:<span>Rs.458.00</span></span>
+                            <span class="order-left">Total:<span class="cartprice">Rs.{{Cart::subtotal()}}</span></span>
                             <ul>
                                 <li><label class="inline"><input type="checkbox"><span class="input"></span>I have promo
                                     code</label></li>
                             </ul>
-                            <button type="submit" class="btn-checkout">
+                            <a href="{{url('/checkout')}}" type="submit" class="btn-checkout">
                                 <span>Check Out</span>
-                            </button>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -95,64 +95,6 @@
 
             </div>
 
-            <div class="block-top-categori">
-
-                <div class="container">
-
-                    <div class="title-of-section">Top Categories This Week</div>
-
-                    <div class="owl-carousel nav-style2" data-nav="true" data-autoplay="false" data-dots="true" data-loop="true" data-margin="20" data-responsive='{"0":{"items":1},"360":{"items":2},"500":{"items":3},"992":{"items":5}}'>
-
-                    @if($data['category'])
-                    @foreach($data['category'] as $key=> $row)
-                        <div class="block-top-categori-item">
-
-                            <a href="#"><img src="{{$row['image']}}" alt="c1"></a>
-
-                            <div class="block-top-categori-title">{{$row['title']}}</div>
-
-                        </div>
-                    @endforeach
-                    @endif
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <div class="block-promotion-banner">
-
-                <div class="container">
-
-                    <div class="row">
-
-                        <div class="col-sm-7">
-
-                            <div class="promotion-banner style-5">
-
-                                <a href="#" class="banner-img"><img src="{{asset('images/home1/banner3.jpg')}}" alt="banner3"></a>
-
-                            </div>
-
-                        </div>
-
-                        <div class="col-sm-5">
-
-                            <div class="promotion-banner style-5">
-
-                                <a href="#" class="banner-img"><img src="{{asset('images/home1/banner4.jpg')}}" alt="banner4"></a>
-
-                            </div>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
             <div class="block-feature-product">
 
                 <div class="container">
@@ -231,11 +173,17 @@
 
                                                             <div class="inner">
 
-                                                                <a href="#" class="compare"><i class="flaticon-refresh-square-arrows"></i></a>
+                                                                <form action="{{ route('cart.store') }}" method="POST">
+                                                                @csrf
+                                                                    <input type="hidden" name="id" value="{{ $row['id']}}">
+                                                                    <input type="hidden" name="title" value="{{ $row['title']}}">
+                                                                    <input type="hidden" name="discounted_price" value="{{ $row['discounted_price']}}">
+                                                                    <input type="hidden" name="image_url" value="{{ $row['feature_image'] }}">
+                                                                    <button type="submit" class="add-to-cart">Add To Cart</button>
+                                                                </form>
+                                                                <!-- <a href="#" class="add-to-cart">Add to cart</a> -->
 
-                                                                <a href="#" class="add-to-cart">Add to cart</a>
-
-                                                                <a href="#" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                                                <!-- <a href="#" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a> -->
 
                                                             </div>
 
@@ -883,6 +831,66 @@
                 </div>
 
             </div>
+
+            <div class="block-top-categori">
+
+                <div class="container">
+
+                    <div class="title-of-section">Top Categories This Week</div>
+
+                    <div class="owl-carousel nav-style2" data-nav="true" data-autoplay="false" data-dots="true" data-loop="true" data-margin="20" data-responsive='{"0":{"items":1},"360":{"items":2},"500":{"items":3},"992":{"items":5}}'>
+
+                    @if($data['category'])
+                    @foreach($data['category'] as $key=> $row)
+                        <div class="block-top-categori-item">
+
+                            <a href="#"><img src="{{$row['image']}}" alt="c1"></a>
+
+                            <div class="block-top-categori-title">{{$row['title']}}</div>
+
+                        </div>
+                    @endforeach
+                    @endif
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="block-promotion-banner">
+
+                <div class="container">
+
+                    <div class="row">
+
+                        <div class="col-sm-7">
+
+                            <div class="promotion-banner style-5">
+
+                                <a href="#" class="banner-img"><img src="{{asset('images/home1/banner3.jpg')}}" alt="banner3"></a>
+
+                            </div>
+
+                        </div>
+
+                        <div class="col-sm-5">
+
+                            <div class="promotion-banner style-5">
+
+                                <a href="#" class="banner-img"><img src="{{asset('images/home1/banner4.jpg')}}" alt="banner4"></a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
 
             <div class="block-sale-product full-width block-background">
 

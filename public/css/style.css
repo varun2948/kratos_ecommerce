@@ -1166,7 +1166,7 @@ input[type=password] {
 }
 .minicart-content-wrapper .subtotal span {
 
-	font-size: 13px;
+	font-size: 19px;
 
 	color: #666;
 
@@ -10414,4 +10414,21 @@ label.inline {
 		width: 100%;
 		border-radius: 30px;
 	}
+}
+span.cartprice{
+	color: #f33c3c !important;
+    font-family: 'Roboto', sans-serif;
+    font-weight: 600;
+	text-decoration: none;
+	font-size:19px;
+}
+
+.thank-you-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    flex: 1;
+    margin:125px;
 }

@@ -173,9 +173,11 @@
                                 <div class="single-add-to-cart">
                                     <form action="{{ route('cart.store') }}" method="POST">
                                     @csrf
+
                                         <input type="hidden" name="id" value="{{ $data['row']['id']}}">
                                         <input type="hidden" name="title" value="{{ $data['row']['title']}}">
                                         <input type="hidden" name="discounted_price" value="{{ $data['row']['discounted_price']}}">
+                                        <input type="hidden" name="image_url" value="{{ $data['row']['feature_image']}}">
                                         <button type="submit" class="btn-add-to-cart">Add To Cart</button>
                                     </form>
 

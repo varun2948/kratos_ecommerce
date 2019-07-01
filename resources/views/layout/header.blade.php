@@ -204,16 +204,16 @@
                         <span class="counter qty">
 
                             <span class="cart-icon"><i class="fa fa-shopping-bag" aria-hidden="true"></i></span>
-
-                            <span class="counter-number">2</span>
-
+                            @if (Cart::instance('default')->count() > 0)
+                            <span class="counter-number">{{Cart::instance('default')->count()}}</span>
+                            @endif
                         </span>
 
                         <span class="counter-your-cart">
 
                             <span class="counter-label">Your Cart:</span>
 
-                            <span class="counter-price">Rs.00.00</span>
+                            <span class="counter-price">Rs.{{Cart::subtotal()}}</span>
 
                         </span>
 
@@ -226,42 +226,16 @@
                             <div class="minicart-content-wrapper" >
 
                                 <div class="subtitle">
-
-                                    You have <span>2</span> item(s) in your cart
-
+                                @if (Cart::instance('default')->count() > 0)
+                                    You have <span>{{Cart::instance('default')->count()}}</span> item(s) in your cart
+                                @endif
                                 </div>
 
                                 <div class="minicart-items-wrapper">
 
                                     <ol class="minicart-items">
 
-                                        <li class="product-inner">
-
-                                            <div class="product-thumb style1">
-
-                                                <div class="thumb-inner">
-
-                                                    <a href="#"><img src="{{asset('images/home1/c1.jpg')}}" alt="c1"></a>
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="product-innfo">
-
-                                                <div class="product-name"><a href="#">Xbox One S Halo Collection Bund</a></div>
-
-                                                <a href="#" class="remove"><i class="fa fa-times" aria-hidden="true"></i></a>
-
-                                                <span class="price price-dark">
-
-                                                    <ins>Rs.229.00</ins>
-
-                                                </span>
-
-                                            </div>
-
-                                        </li>
+                                    @foreach (Cart::content() as $item)
 
                                         <li class="product-inner">
 
@@ -269,7 +243,7 @@
 
                                                 <div class="thumb-inner">
 
-                                                    <a href="#"><img src="{{asset('images/home/c2.jpg')}}" alt="c2"></a>
+                                                    <a href="#"><img src="{{$item->options->url}}" alt="c2"></a>
 
                                                 </div>
 
@@ -277,21 +251,21 @@
 
                                             <div class="product-innfo">
 
-                                                <div class="product-name"><a href="#">Acer's Aspire S7 is a thin and portable...</a></div>
+                                                <div class="product-name"><a href="#">{{$item->name}}</a></div>
                                                 <a href="#" class="remove"><i class="fa fa-times" aria-hidden="true"></i></a>
 
                                                 <span class="price">
 
-                                                    <ins>Rs.229.00</ins>
+                                                    <ins>Rs.{{$item->price}}</ins>
 
-                                                    <del>Rs.259.00</del>
+                                                    <del>{{$item->discounted_price}}</del>
 
                                                 </span>
 
                                             </div>
 
                                         </li>
-
+                                    @endforeach
                                     </ol>
 
                                 </div>
@@ -300,7 +274,7 @@
 
                                     <span class="label">Total :</span>
 
-                                    <span class="price">Rs.480.00</span>
+                                    <span class="cartprice">Rs.{{Cart::subtotal()}}</span>
 
                                 </div>
 

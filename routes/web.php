@@ -96,8 +96,12 @@ Route::get('/contact', 		['as' =>'contact', 	    'uses'=>'FrontController@contac
 
 Route::get('/cart', 		['as' =>'cart.index', 	    'uses'=>'CartController@index']);
 Route::post('/cart', 		['as' =>'cart.store', 	    'uses'=>'CartController@store']);
-
+Route::delete('/cart/{product}', 		['as' =>'cart.destroy', 	    'uses'=>'CartController@destroy']);
 Route::get('empty', 		['as' =>'cart.empty', 	    'uses'=>'CartController@empty']);
+
+Route::get('/checkout', ['as'=>'checkout.index', 'uses'=>'CheckoutController@index']);
+Route::post('/checkout', ['as'=>'checkout.store', 'uses'=>'CheckoutController@store']);
+Route::get('/thankyou', ['as'=>'checkout.thankyou', 'uses'=>'CheckoutController@thankyou']);
 
 
 

@@ -32,6 +32,13 @@
 
         <link href="{{asset('fonts/css1b12.css?family=Roboto:300,400,400i,500,500i,700')}}" rel="stylesheet">
 
+        <style>
+        .alert.alert-sucess {
+            color: #3c763d;
+            background-color: #dff0d8;
+            border-color: #d6e9c6;
+        }
+        </style>
         @yield('css')
 <!--
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
@@ -94,6 +101,6 @@
     <script type="text/javascript" src="{{asset('js/jquery.plugin.js')}}"></script>
 
     <script type="text/javascript" src="{{asset('js/jquery.countdown.js')}}"></script>
-
+ @yield('js')
     </body>
 </html>
