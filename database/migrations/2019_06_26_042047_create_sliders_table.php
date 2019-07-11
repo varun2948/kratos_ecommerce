@@ -19,7 +19,7 @@ class CreateSlidersTable extends Migration
             $table->longText('short_description');
             $table->longText('image');
             $table->integer('status');
-            $table->integer('sort_order');
+            $table->integer('sortorder');
             $table->timestamps();
         });
     }

@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Products;
+use Illuminate\Support\Facades\DB;
+use App\Models\Category;
 use App\Models\Cart;
 use Illuminate\Http\Request;
 use App\Http\Requests\Products\AddFromValidation;
@@ -30,13 +32,22 @@ class ProductsController extends Controller
     public function index()
     {
         $data =[];
-		$data['rows'] =Products::select('*')->get();
+        // $data['rows'] =Products::select('*')->get();
+        $data['rows'] = DB::table('products')
+            ->join('category', 'category.id', '=', 'products.category')
+            ->select('category.title as category_title', 'products.*')
+            ->get();
+        // dd($data['rows']);
         return view('dashboard.product.product',compact('data'));
     }
 
     public function addindex()
     {
-        return view('dashboard.product.addproduct');
+
+        $data =[];
+		$data['category'] =Category::select('*')->get();
+        //dd($data['rows']);
+        return view('dashboard.product.addproduct',compact('data'));
     }
 
 
@@ -47,11 +58,12 @@ class ProductsController extends Controller
     		$image = $request->file('image');
     		$image_name = rand(4952, 9857).'_'.$image->getClientOriginalName();
 			$image->move(public_path().DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'product',$image_name);
-            $imagefinalname = 'http://127.0.0.1:8000'.DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'product'.DIRECTORY_SEPARATOR.$image_name;
+            $imagefinalname = url('/').DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'product'.DIRECTORY_SEPARATOR.$image_name;
 
     	}
         $user = auth()->user();
     	$request->request->add([
+                'category'=>$request->get('category'),
     			'title' => $request->get('title'),
     			'short_description' => $request->get('short_description'),
                 'feature_image' => $imagefinalname,
@@ -63,7 +75,7 @@ class ProductsController extends Controller
     			'each_feature_product' => $request->get('each_feature_product'),
     			'discounted_percentage' => $request->get('discounted_percentage'),
     		]);
-    	// dd($request->request->all());
+    	dd($request->request->all());
     	Products::create($request->request->all());
     	$request->session()->flash('success_message', 'Product added Successfully.');
     	return redirect()->route('admin.products');
@@ -91,6 +103,7 @@ class ProductsController extends Controller
         $data= [];
         // dd($id);
         $data['row'] = Products::where('id',$id)->first();
+        $data['category'] =Category::select('*')->get();
         // dd($data['row']);
         if(!$data['row']) {
             $request->session()->flash('error_message', 'Invalid Request.');
@@ -108,12 +121,15 @@ class ProductsController extends Controller
     {
         $data=[];
         $data['row']= Products::where('id', $id)->first();
-        if($request->hasFile('feature_image')){
-            $image= $request->file('feature_image');
-            $image_data= $data['row']->feature_image;
+
+
+        if($request->hasFile('image')){
+            $image= $request->file('image');
+            $image_data= $data['row']->image;
+
 
             $image_name= rand(4953,9857).'_'.$image->getClientOriginalName();
-            $imagefinalname='http://127.0.0.1:8000'.DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'product'.DIRECTORY_SEPARATOR.$image_name;
+            $imagefinalname = url('/').DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'product'.DIRECTORY_SEPARATOR.$image_name;
             $image->move(public_path().DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'product',$image_name);
             if($data['row']->image && file_exists($image_data)){
                 unlink($image_data);
@@ -121,10 +137,11 @@ class ProductsController extends Controller
         }
         $user= auth()->user();
         $request->request->add([
+            'category'=>$request->get('category'),
             'title' => $request->get('title'),
             'short_description' => $request->get('short_description'),
             // 'createdby' => $user->id,
-            'feature_image'=> isset($image_name)?$imagefinalname:$data['row']->feature_image,
+            'feature_image'=> isset($image_name)?$imagefinalname:$data['row']->image,
             'status' => $request->get('status') == 'active'?1:0,
             'sortorder'=>$request->get('sortorder'),
             'title' => $request->get('title'),

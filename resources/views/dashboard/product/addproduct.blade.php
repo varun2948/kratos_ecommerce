@@ -17,6 +17,19 @@
                                 <form role="form" action="{{ route('admin.products.store')}}" method="POST" id="form_sample_3" class="form-horizontal" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
+                                <label for="category">Category</label>
+                                <select class="form-control btn-primary" id="category" name="category" placeholder="Enter Category">
+                            @if($data['category'])
+                            @foreach($data['category'] as $key=> $row)
+
+                                    <option value="{{$row->id}}">{{$row->title}}</option>
+
+
+                            @endforeach
+                            @endif
+                                </select>
+                            </div>
+                            <div class="form-group">
                                     <label for="title">Title</label>
                                     <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title">
                                 </div>

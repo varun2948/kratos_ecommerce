@@ -15,9 +15,9 @@
                         <span>Slider Table</span>
                     </a>
                     <ul class="sub">
-                        <li><a href="{{url('admin/slider')}}">Slider</a></li>
-                        <li><a href="horizontal_menu.html">Edit Slider</a></li>
-                        <li><a href="language_switch.html">Remove Slider</a></li>
+                        <li><a href="{{url('admin/slider')}}">Add Slider</a></li>
+                        <!-- <li><a href="horizontal_menu.html">Edit Slider</a></li>
+                        <li><a href="language_switch.html">Remove Slider</a></li> -->
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -27,8 +27,8 @@
                     </a>
                     <ul class="sub">
                         <li><a href="{{url('admin/advert')}}">Add Advertisement</a></li>
-                        <li><a href="#">Edit Advertisement</a></li>
-                        <li><a href="buttons.html">Remove Advertisement</a></li>
+                        <!-- <li><a href="#">Edit Advertisement</a></li>
+                        <li><a href="buttons.html">Remove Advertisement</a></li> -->
 
                     </ul>
                 </li>
@@ -39,8 +39,8 @@
                     </a>
                     <ul class="sub">
                         <li><a href="{{url('admin/category')}}">Add Category</a></li>
-                        <li><a href="basic_table.html">Edit Category</a></li>
-                        <li><a href="basic_table.html">Remove Category</a></li>
+                        <!-- <li><a href="basic_table.html">Edit Category</a></li>
+                        <li><a href="basic_table.html">Remove Category</a></li> -->
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -50,8 +50,8 @@
                     </a>
                     <ul class="sub">
                         <li><a href="{{url('admin/products')}}">Add Product</a></li>
-                        <li><a href="dropzone.html">Edit Product</a></li>
-                        <li><a href="inline_editor.html">Remove Product</a></li>
+                        <!-- <li><a href="dropzone.html">Edit Product</a></li>
+                        <li><a href="inline_editor.html">Remove Product</a></li> -->
                     </ul>
                 </li>
                 <li class="sub-menu">
@@ -60,9 +60,9 @@
                         <span>Clients </span>
                     </a>
                     <ul class="sub">
-                        <li><a href="{{url('admin/clients')}}">Clients</a></li>
-                        <li><a href="#">Edit Clients</a></li>
-                        <li><a href="#">Remove Clients</a></li>
+                        <li><a href="{{url('admin/clients')}}">Add Clients</a></li>
+                        <!-- <li><a href="#">Edit Clients</a></li>
+                        <li><a href="#">Remove Clients</a></li> -->
 
                     </ul>
                 </li>

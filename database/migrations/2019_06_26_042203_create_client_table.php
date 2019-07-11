@@ -18,7 +18,7 @@ class CreateClientTable extends Migration
             $table->string('title',255);
             $table->integer('status');
             $table->longText('url');
-            $table->integer('sort_order');
+            $table->integer('sortorder');
             $table->timestamps();
         });
     }

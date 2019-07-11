@@ -17,6 +17,19 @@
                                 <form role="form" action="{{ route('admin.products.update',$data['row']->id)}}" method="POST" id="form_sample_3" class="form-horizontal" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group">
+                                <label for="category">Category</label>
+                                <select class="form-control btn-primary" id="category" name="category" placeholder="Enter Category" >
+
+
+                                @if($data['category'])
+                            @foreach($data['category'] as $key=> $cat)
+                            <option value="{{ $cat->id }}" @if($data['row']->category=== $cat->id) selected='selected' @endif>{{ $cat->title }}</option>
+
+                            @endforeach
+                            @endif
+                                </select>
+                            </div>
+                            <div class="form-group">
                                     <label for="title">Title</label>
                                     <input type="text" class="form-control" id="title" name="title" placeholder="Enter Title"
                                     value="{{ !empty($data['row']->title) ? $data['row']['title']:'' }}">
@@ -32,10 +45,10 @@
                                         <input type="file" id="imageupload" name="image">
                                         <p class="help-block">Example block-level help text here.</p>
                                     </div>
-                                    @if ($data['row']->image)
+                                    @if ($data['row']->feature_image)
                                     <div class="form-group">
                                         <label>Previous Facts Image</label>
-                                        <img src="{{  $data['row']['image'] }}" height="100" width="80">
+                                        <img src="{{  $data['row']['feature_image'] }}" height="100" width="80">
                                     </div>
                                     @else
                                         <div class="form-group">

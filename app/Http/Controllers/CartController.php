@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 use App\Http\Requests\Products\AddFromValidation;
 
 use Session;
+use App\Models\Products;
 
 class CartController extends Controller
 {
@@ -30,6 +31,8 @@ class CartController extends Controller
     */
    public function index()
    {
+        $data =[];
+        $data['rows'] =Products::select('*')->get();
        return view('Products.cart',compact('data'));
    }
 

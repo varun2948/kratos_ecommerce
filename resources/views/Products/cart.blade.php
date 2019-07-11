@@ -86,7 +86,7 @@
                             </table>
                         </div>
                         <div class="cart-actions">
-                            <a href="{{ route('shop')}}" class="button">
+                            <a href="{{ route('front')}}" class="button">
                                 <span>Continue Shopping</span>
                             </a>
                             <button type="submit" class="btn-clean">
@@ -108,7 +108,7 @@
 
                 <div class="col-md-9">
                     <h3>No Item In Cart</h3>
-                    <a href="{{ url('/shop')}}" class="button">
+                    <a href="{{ url('/')}}" class="button">
                                 Continue Shopping
                     </a>
                 </div>
@@ -139,211 +139,57 @@
                 <div class="owl-carousel nav-style2 border-background equal-container" data-nav="true"
                      data-autoplay="false" data-dots="false" data-loop="true" data-margin="0"
                      data-responsive='{"0":{"items":1},"480":{"items":2},"768":{"items":3},"992":{"items":4},"1200":{"items":5}}'>
-                    <div class="product-item style1">
-                        <div class="product-inner equal-elem">
-                            <div class="product-thumb">
-                                <div class="thumb-inner">
-                                    <a href="#"><img src="{{asset('images/home1/r1.jpg')}}" alt="r1"></a>
+                     @if($data['rows'])
+                        @foreach($data['rows'] as $key => $row)
+                        <div class="product-item style1">
+                            <div class="product-inner equal-elem">
+                                <div class="product-thumb">
+                                    <div class="thumb-inner">
+                                        <a href="{{ route('productdetail',['id' => $row->id]) }}"><img src="{{$row['feature_image']}}" alt="r1"></a>
+                                    </div>
+                                    <span class="onsale">-{{$row['discounted_percentage']}}</span>
+                                    <a href="#" class="quick-view">Quick View</a>
                                 </div>
-                                <span class="onsale">-50%</span>
-                                <a href="#" class="quick-view">Quick View</a>
-                            </div>
-                            <div class="product-innfo">
-                                <div class="product-name"><a href="#">Women Hats</a></div>
-                                <span class="price">
+                                <div class="product-innfo">
+                                    <div class="product-name"><a href="#">{{$row['title']}}</a></div>
+                                    <span class="price">
 
-                                        <ins>Rs.229.00</ins>
+                                            <ins>Rs.{{$row['discounted_price']}}</ins>
 
-                                        <del>Rs.259.00</del>
+                                            <del>Rs.{{$row['price']}}</del>
 
-                                    </span>
-                                <span class="star-rating">
+                                        </span>
+                                    <span class="star-rating">
 
-                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
 
-                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
 
-                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
 
-                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
 
-                                        <i class="fa fa-star" aria-hidden="true"></i>
+                                            <i class="fa fa-star" aria-hidden="true"></i>
 
-                                        <span class="review">5 Review(s)</span>
+                                            <span class="review">5 Review(s)</span>
 
-                                    </span>
-                                <div class="group-btn-hover style2">
-                                    <a href="#" class="add-to-cart"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                    <a href="#" class="compare"><i class="flaticon-refresh-square-arrows"></i></a>
-                                    <a href="#" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item style1">
-                        <div class="product-inner equal-elem">
-                            <div class="product-thumb">
-                                <div class="thumb-inner">
-                                    <a href="#"><img src="{{asset('images/home1/r2.jpg')}}" alt="r2"></a>
-                                </div>
-                                <span class="onnew">new</span>
-                                <a href="#" class="quick-view">Quick View</a>
-                            </div>
-                            <div class="product-innfo">
-                                <div class="product-name"><a href="#">Basketball Sports Audio & Theater</a></div>
-                                <span class="price price-dark">
-
-                                        <ins>Rs.229.00</ins>
-
-                                    </span>
-                                <span class="star-rating">
-
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-
-                                        <span class="review">5 Review(s)</span>
-
-                                    </span>
-                                <div class="group-btn-hover style2">
-                                    <a href="#" class="add-to-cart"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                    <a href="#" class="compare"><i class="flaticon-refresh-square-arrows"></i></a>
-                                    <a href="#" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
+                                        </span>
+                                    <div class="group-btn-hover style2">
+                                    <form action="{{ route('cart.store') }}" method="POST">
+                                        @csrf
+                                            <input type="hidden" name="id" value="{{ $row['id']}}">
+                                            <input type="hidden" name="title" value="{{ $row['title']}}">
+                                            <input type="hidden" name="discounted_price" value="{{ $row['discounted_price']}}">
+                                            <input type="hidden" name="image_url" value="{{ $row['feature_image'] }}">
+                                            <button type="submit" class="add-to-cart">Add To Cart</button>
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="product-item style1">
-                        <div class="product-inner equal-elem">
-                            <div class="product-thumb">
-                                <div class="thumb-inner">
-                                    <a href="#"><img src="{{asset('images/home1/r3.jpg')}}" alt="r3"></a>
-                                </div>
-                                <a href="#" class="quick-view">Quick View</a>
-                            </div>
-                            <div class="product-innfo">
-                                <div class="product-name"><a href="#">Dark Green Prada Sneakers</a></div>
-                                <span class="price price-dark">
+                     @endforeach
+                    @endif
 
-                                        <ins>Rs.229.00</ins>
-
-                                    </span>
-                                <span class="star-rating">
-
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-
-                                        <span class="review">5 Review(s)</span>
-
-                                    </span>
-                                <div class="group-btn-hover style2">
-                                    <a href="#" class="add-to-cart"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                    <a href="#" class="compare"><i class="flaticon-refresh-square-arrows"></i></a>
-                                    <a href="#" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item style1">
-                        <div class="product-inner equal-elem">
-                            <div class="product-thumb">
-                                <div class="thumb-inner">
-                                    <a href="#"><img src="{{asset('images/home1/r4.jpg')}}" alt="r4"></a>
-                                </div>
-                                <a href="#" class="quick-view">Quick View</a>
-                            </div>
-                            <div class="product-innfo">
-                                <div class="product-name"><a href="#">Clutches in Men's Bags for Men</a></div>
-                                <span class="price price-dark">
-
-                                        <ins>Rs.229.00</ins>
-
-                                    </span>
-                                <div class="group-btn-hover style2">
-                                    <a href="#" class="add-to-cart"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                    <a href="#" class="compare"><i class="flaticon-refresh-square-arrows"></i></a>
-                                    <a href="#" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item style1">
-                        <div class="product-inner equal-elem">
-                            <div class="product-thumb">
-                                <div class="thumb-inner">
-                                    <a href="#"><img src="{{asset('images/home1/r5.jpg')}}" alt="r5"></a>
-                                </div>
-                                <span class="onsale">-50%</span>
-                                <a href="#" class="quick-view">Quick View</a>
-                            </div>
-                            <div class="product-innfo">
-                                <div class="product-name"><a href="#">Parka With a Hood</a></div>
-                                <span class="price">
-
-                                        <ins>Rs.229.00</ins>
-
-                                        <del>Rs.259.00</del>
-
-                                    </span>
-                                <span class="star-rating">
-
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-
-                                        <i class="fa fa-star" aria-hidden="true"></i>
-
-                                        <span class="review">5 Review(s)</span>
-
-                                    </span>
-                                <div class="group-btn-hover style2">
-                                    <a href="#" class="add-to-cart"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                    <a href="#" class="compare"><i class="flaticon-refresh-square-arrows"></i></a>
-                                    <a href="#" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="product-item style1">
-                        <div class="product-inner equal-elem">
-                            <div class="product-thumb">
-                                <div class="thumb-inner">
-                                    <a href="#"><img src="{{asset('images/home1/r6.jpg')}}" alt="r6"></a>
-                                </div>
-                                <a href="#" class="quick-view">Quick View</a>
-                            </div>
-                            <div class="product-innfo">
-                                <div class="product-name"><a href="#">Smartphone MTK6737 Quad Core.</a></div>
-                                <span class="price price-dark">
-
-                                        <ins>Rs.229.00</ins>
-
-                                    </span>
-                                <div class="group-btn-hover style2">
-                                    <a href="#" class="add-to-cart"><i class="fa fa-shopping-bag" aria-hidden="true"></i></a>
-                                    <a href="#" class="compare"><i class="flaticon-refresh-square-arrows"></i></a>
-                                    <a href="#" class="wishlist"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
@@ -353,12 +199,12 @@
                     <div class="owl-carousel nav-style3" data-nav="true" data-autoplay="false" data-dots="false"
                          data-loop="true" data-margin="2"
                          data-responsive='{"0":{"items":1},"480":{"items":2},"600":{"items":4},"1000":{"items":6}}'>
-                         <a href="#" class="item-brand"><img src="{{asset('images/brand1.jpg')}}" alt="brand1"></a>
-                            <a href="#" class="item-brand"><img src="{{asset('images/brand1.jpg')}}" alt="brand1"></a>
-                            <a href="#" class="item-brand"><img src="{{asset('images/brand1.jpg')}}" alt="brand1"></a>
-                            <a href="#" class="item-brand"><img src="{{asset('images/brand1.jpg')}}" alt="brand1"></a>
-                            <a href="#" class="item-brand"><img src="{{asset('images/brand1.jpg')}}" alt="brand1"></a>
-                            <a href="#" class="item-brand"><img src="{{asset('images/brand1.jpg')}}" alt="brand1"></a>
+                         <a href="#" class="item-brand"><img src="{{asset('images/deepakbanner.jpg')}}" alt="brand1"></a>
+                            <a href="#" class="item-brand"><img src="{{asset('images/deepakbanner.jpg')}}" alt="brand1"></a>
+                            <a href="#" class="item-brand"><img src="{{asset('images/deepakbanner.jpg')}}" alt="brand1"></a>
+                            <a href="#" class="item-brand"><img src="{{asset('images/deepakbanner.jpg')}}" alt="brand1"></a>
+                            <a href="#" class="item-brand"><img src="{{asset('images/deepakbanner.jpg')}}" alt="brand1"></a>
+                            <a href="#" class="item-brand"><img src="{{asset('images/deepakbanner.jpg')}}" alt="brand1"></a>
                     </div>
                 </div>
             </div>

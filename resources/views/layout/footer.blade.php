@@ -98,11 +98,9 @@
 
                                 <ul>
 
-                                    <li><a href="#">Sign In</a></li>
+                                    <!-- <li><a href="#">Sign In</a></li> -->
 
-                                    <li><a href="#">View Cart</a></li>
-
-                                    <li><a href="#">My Wishlist</a></li>
+                                    <li><a href="{{url('/cart')}}">View Cart</a></li>
 
                                     <li><a href="#">Contact us</a></li>
 
@@ -112,7 +110,7 @@
 
                             </div>
 
-                            <div class="col-md-2 col-sm-6 equal-elem">
+                            <!-- <div class="col-md-2 col-sm-6 equal-elem">
 
                                 <div class="links">
 
@@ -135,7 +133,7 @@
 
                                 </div>
 
-                            </div>
+                            </div> -->
 
 
                         </div>

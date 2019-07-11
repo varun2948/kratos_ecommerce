@@ -27,7 +27,7 @@
 
                     </div>
 
-                    <form class="form-contact" action="#" method="post">
+                    <!-- <form class="form-contact" action="#" method="post">
 
                         <div class="col-md-5">
 
@@ -82,7 +82,7 @@
                         </div>
 
                     </form>
-
+ -->
                     <div class="col-md-3 contact-detail">
 
                         <h5 class="title-contact">Contact Detail</h5>

@@ -131,10 +131,9 @@
         <div class="checkout-table">
 
             @foreach (Cart::content() as $item)
-            @dd(Cart::content())
             <div class="checkout-table-row">
                 <div class="checkout-table-row-left">
-                    <img src="{{$item->image_url}}" alt="item" class="checkout-table-img">
+                    <img src="{{$item->options->url}}" alt="item" class="checkout-table-img">
                     <div class="checkout-item-details">
                         <div class="checkout-table-item">{{$item->name}}</div>
                         <!-- <div class="checkout-table-description">{{$item->id}}</div> -->

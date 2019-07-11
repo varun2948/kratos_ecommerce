@@ -3,7 +3,7 @@
 @section('content')
 
 <section id="main-content">
-    <section class="wrapper">
+    <section class="wrapper table-responsive">
         <!-- page start-->
         @if(session()->has('success_message'))
         <div class="alert alert-success alert-dismissible">
@@ -47,6 +47,7 @@
                                 <thead>
                                 <tr>
                                     <th>Id</th>
+                                    <th>Category</th>
                                     <th>Title</th>
                                     <th>Short Description</th>
                                     <th>Feature Image</th>
@@ -66,21 +67,23 @@
                                 <tbody>
                                 @php $i = 1; @endphp
                                 @if($data['rows'])
+
                                     @foreach($data['rows'] as $key => $row)
                                 <tr class="">
-                                    <td>{{$row['id']}}</td>
-                                    <td>{{$row['title']}}</td>
-                                    <td>{{$row['short_description']}}</td>
-                                    <td><img src="{{$row['feature_image']}}" height="80px" width="70px"></td>
-                                    <td>{{$row['price']}}</td>
-                                    <td>{{$row['discounted_price']}}</td>
-                                    <td>{{$row['specific_description']}}</td>
-                                    <td>{{$row['long_description']}}</td>
-                                    <td>{{$row['each_feature_product']}}</td>
-                                    <td>{{$row['discounted_percentage']}}</td>
-                                    <td>{{$row['review']}}</td>
-                                    <td>{{$row['created_at']}}</td>
-                                    <td>{{$row['updated_at']}}</td>
+                                    <td>{{$row->id}}</td>
+                                    <td>{{$row->category_title}}</td>
+                                    <td>{{$row->title}}</td>
+                                    <td>{{$row->short_description}}</td>
+                                    <td><img src="{{$row->feature_image}}" height="80px" width="70px"></td>
+                                    <td>{{$row->price}}</td>
+                                    <td>{{$row->discounted_price}}</td>
+                                    <td>{{$row->specific_description}}</td>
+                                    <td>{{$row->long_description}}</td>
+                                    <td>{{$row->each_feature_product}}</td>
+                                    <td>{{$row->discounted_percentage}}</td>
+                                    <td>{{$row->review}}</td>
+                                    <td>{{$row->created_at}}</td>
+                                    <td>{{$row->updated_at}}</td>
                                     <td><a class="btn btn-primary edit" onclick="return confirm('Are you sure to Edit Product?');"
                                     href="{{ route('admin.products.edit',['id' => $row->id]) }}">Edit</a></td>
                                     <td><a class="btn btn-danger delete" onclick="return confirm('Are you sure to Delete Product?');"

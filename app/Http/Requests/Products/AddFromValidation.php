@@ -24,6 +24,7 @@ class AddFromValidation extends FormRequest
     public function rules()
     {
         return [
+                'category' => 'required',
                 'title' => 'required',
                 'price' => 'required',
                 'image' => 'required | mimes:jpeg,bmp,png'

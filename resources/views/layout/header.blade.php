@@ -13,7 +13,7 @@
 
         <ul class="nav-top-left" >
 
-            <li><a href="#">Welcome to Tyrion - Always free delivery</a></li>
+            <li><a href="#">Welcome to Kratos - Always free delivery</a></li>
 
         </ul><!-- hotline -->
 
@@ -136,7 +136,7 @@
 
                 <!-- block search -->
 
-                <div class="block-search">
+                <!-- <div class="block-search">
 
                     <div class="block-content">
 
@@ -187,7 +187,8 @@
 
                     </div>
 
-                </div><!-- block search -->
+                </div> -->
+                <!-- block search -->
 
             </div>
 
@@ -252,7 +253,8 @@
                                             <div class="product-innfo">
 
                                                 <div class="product-name"><a href="#">{{$item->name}}</a></div>
-                                                <a href="#" class="remove"><i class="fa fa-times" aria-hidden="true"></i></a>
+
+                                                <!-- <a href="#" class="remove"><i class="fa fa-times" aria-hidden="true"></i></a> -->
 
                                                 <span class="price">
 
@@ -282,7 +284,7 @@
 
                                     <a class="btn btn-viewcart" href="{{url('/cart')}}">View cart</a>
 
-                                    <a class="btn btn-checkout" href="#">Checkout</a>
+                                    <a class="btn btn-checkout" href="{{url('/checkout')}}">Checkout</a>
 
                                 </div>
 
@@ -294,7 +296,7 @@
 
                 </div><!-- block mini cart -->
 
-                <a href="#" class="hidden-md search-hidden"><span class="pe-7s-search"></span></a>
+                <a href="#" class="hidden-md search-hidden"><span class="pe-7s-search" disabled></span></a>
 
                 <a class="wishlist-minicart" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
 

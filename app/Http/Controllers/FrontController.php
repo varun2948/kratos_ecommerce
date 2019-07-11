@@ -29,6 +29,8 @@ class FrontController extends Controller
         $data =[];
         $data['rows'] =Products::select('*')->get();
 
+        $data['rowdesc'] =Products::orderBy('id', 'DESC')->select('*')->get();
+
 
         $data['slider'] =Slider::select('*')->get();
 

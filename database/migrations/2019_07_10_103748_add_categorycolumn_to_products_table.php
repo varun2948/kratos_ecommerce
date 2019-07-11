@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateAdsTable extends Migration
+class AddCategorycolumnToProductsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,9 @@ class CreateAdsTable extends Migration
      */
     public function up()
     {
-        Schema::create('ads', function (Blueprint $table) {
-            $table->bigIncrements('id');
-            $table->longText('image');
-            $table->integer('status');
-            $table->integer('sortorder');
-            $table->timestamps();
+        Schema::table('products', function (Blueprint $table) {
+            //
+            $table->string('category',100)->after('id');;
         });
     }
 
@@ -29,6 +26,9 @@ class CreateAdsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('ads');
+        Schema::table('products', function (Blueprint $table) {
+            //
+            $table->dropColumn('category');
+        });
     }
 }
