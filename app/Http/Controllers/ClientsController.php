@@ -45,7 +45,7 @@ class ClientsController extends Controller
     		$image = $request->file('image');
     		$image_name = rand(4952, 9857).'_'.$image->getClientOriginalName();
             $image->move(public_path().DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'Clients',$image_name);
-            $imagefinalname = 'http://127.0.0.1:8000'.DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'Clients'.DIRECTORY_SEPARATOR.$image_name;
+            $imagefinalname = url('/').DIRECTORY_SEPARATOR.'uploads'.DIRECTORY_SEPARATOR.'Clients'.DIRECTORY_SEPARATOR.$image_name;
 
             // dd($imagefinalname);
     	}

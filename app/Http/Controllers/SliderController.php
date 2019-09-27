@@ -44,7 +44,7 @@ class SliderController extends Controller
             $image = $request->file('image');
             $image_name = rand(4952, 9857) . '_' . $image->getClientOriginalName();
             $image->move(public_path() . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'slider', $image_name);
-            $imagefinalname = 'http://127.0.0.1:8000' . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'slider' . DIRECTORY_SEPARATOR . $image_name;
+            $imagefinalname = url('/') . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'slider' . DIRECTORY_SEPARATOR . $image_name;
         }
         $user = auth()->user();
         $request->request->add([
@@ -83,7 +83,7 @@ class SliderController extends Controller
             $image_data = $data['row']->image;
 
             $image_name = rand(4953, 9857) . '_' . $image->getClientOriginalName();
-            $imagefinalname = 'http://127.0.0.1:8000' . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'slider' . DIRECTORY_SEPARATOR . $image_name;
+            $imagefinalname =url('/') . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'slider' . DIRECTORY_SEPARATOR . $image_name;
             $image->move(public_path() . DIRECTORY_SEPARATOR . 'uploads' . DIRECTORY_SEPARATOR . 'slider', $image_name);
             if ($data['row']->image && file_exists($image_data)) {
                 unlink($image_data);
