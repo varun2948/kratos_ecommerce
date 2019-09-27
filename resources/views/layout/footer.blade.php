@@ -102,7 +102,7 @@
 
                                     <li><a href="{{url('/cart')}}">View Cart</a></li>
 
-                                    <li><a href="#">Contact us</a></li>
+                                    <li><a href="{{url('/contact')}}">Contact us</a></li>
 
                                 </ul>
 

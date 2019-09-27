@@ -1,146 +1,147 @@
-
 <header class="site-header header-opt-1">
 
-<!-- header-top -->
+    <!-- header-top -->
 
-<div class="header-top">
+    <div class="header-top">
 
-    <div class="container">
+        <div class="container">
 
 
 
-        <!-- hotline -->
+            <!-- hotline -->
 
-        <ul class="nav-top-left" >
+            <ul class="nav-top-left">
 
-            <li><a href="#">Welcome to Kratos - Always free delivery</a></li>
+                <li><a href="#">Welcome to Kratos - Always free delivery</a></li>
 
-        </ul><!-- hotline -->
+            </ul><!-- hotline -->
 
 
 
-        <!-- heder links -->
+            <!-- heder links -->
 
-        <ul class="nav-top-right tyrion-nav">
+            <ul class="nav-top-right tyrion-nav">
 
-            <li ><a href="#">Newsletter</a></li>
+                <li><a href="#">Newsletter</a></li>
 
-            <li class="menu-item-has-children">
-                <a href="#" class="dropdown-toggle">
-                    <img src="{{asset('images/general/l1.jpg')}}" alt="flag">English<i class="fa fa-angle-down" aria-hidden="true"></i>
-                </a>
+                <li class="menu-item-has-children">
+                    <a href="#" class="dropdown-toggle">
+                        <img src="{{asset('images/general/l1.jpg')}}" alt="flag">English<i class="fa fa-angle-down" aria-hidden="true"></i>
+                    </a>
 
-                <ul class="submenu parent-megamenu">
+                    <ul class="submenu parent-megamenu">
 
-                    <li class="switcher-option">
+                        <li class="switcher-option">
 
-                        <a href="#" class="flag"><img src="{{asset('images/general/l1.jpg')}}" alt="flag">English</a>
+                            <a href="#" class="flag"><img src="{{asset('images/general/l1.jpg')}}" alt="flag">English</a>
 
-                    </li>
+                        </li>
 
-                    <li class="switcher-option">
+                        <li class="switcher-option">
 
-                        <a href="#" class="flag"><img src="{{asset('images/general/l2.jpg')}}" alt="flag">Hungary</a>
+                            <a href="#" class="flag"><img src="{{asset('images/general/l2.jpg')}}" alt="flag">Hungary</a>
 
-                    </li>
+                        </li>
 
-                    <li class="switcher-option">
+                        <li class="switcher-option">
 
-                        <a href="#" class="flag"><img src="{{asset('images/general/l3.jpg')}}" alt="flag">German</a>
+                            <a href="#" class="flag"><img src="{{asset('images/general/l3.jpg')}}" alt="flag">German</a>
 
-                    </li>
+                        </li>
 
-                    <li class="switcher-option">
+                        <li class="switcher-option">
 
-                        <a href="#" class="flag"><img src="{{asset('images/general/l4.jpg')}}" alt="flag">French</a>
+                            <a href="#" class="flag"><img src="{{asset('images/general/l4.jpg')}}" alt="flag">French</a>
 
-                    </li>
+                        </li>
 
-                    <li class="switcher-option">
+                        <li class="switcher-option">
 
-                        <a href="#" class="flag"><img src="{{asset('images/general/l5.jpg')}}" alt="flag">Canada</a>
+                            <a href="#" class="flag"><img src="{{asset('images/general/l5.jpg')}}" alt="flag">Canada</a>
 
-                    </li>
+                        </li>
 
-                </ul>
+                    </ul>
 
-            </li>
+                </li>
 
-            <li class="menu-item-has-children">
+                <li class="menu-item-has-children">
 
-                <a href="#" class="dropdown-toggle">
+                    <a href="#" class="dropdown-toggle">
 
-                    <span>NC (Nepali Currency)</span><i class="fa fa-angle-down" aria-hidden="true"></i>
+                        <span>NC (Nepali Currency)</span><i class="fa fa-angle-down" aria-hidden="true"></i>
 
-                </a>
+                    </a>
 
-                <ul class="submenu parent-megamenu">
+                    <ul class="submenu parent-megamenu">
 
-                    <li class="switcher-option">
+                        <li class="switcher-option">
 
-                        <a href="#" class="switcher-flag icon">Pound (GBP)</a>
+                            <a href="#" class="switcher-flag icon">Pound (GBP)</a>
 
-                    </li>
+                        </li>
 
-                    <li class="switcher-option">
+                        <li class="switcher-option">
 
-                        <a href="#" class="switcher-flag icon">Euro (EUR)</a>
+                            <a href="#" class="switcher-flag icon">Euro (EUR)</a>
 
-                    </li>
+                        </li>
 
-                    <li class="switcher-option">
+                        <li class="switcher-option">
 
-                        <a href="#" class="switcher-flag icon">Dollar (USD)</a>
+                            <a href="#" class="switcher-flag icon">Dollar (USD)</a>
 
-                    </li>
+                        </li>
 
-                </ul>
+                    </ul>
 
-            </li>
+                </li>
 
-            <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i>Register / Sign in</a></li>
+                <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i>Register / Sign in</a></li>
 
-        </ul><!-- heder links -->
+            </ul><!-- heder links -->
 
 
 
-    </div>
+        </div>
 
-</div> <!-- header-top -->
+    </div> <!-- header-top -->
 
 
 
-<!-- header-content -->
+    <!-- header-content -->
 
-<div class="header-content">
+    <div class="header-content">
 
-    <div class="container">
+        <div class="container">
 
-        <div class="row">
+            <div class="row">
 
-            <div class="col-md-2 nav-left">
+                <div class="col-md-2 nav-left">
 
-                <!-- logo -->
+                    <!-- logo -->
 
-                <strong class="logo">
+                    <strong class="logo">
 
-                    <a href="#"><img src="{{asset('images/deepaklogo.jpg')}}" style="border: 2px solid #c54141;width: 134px;border-radius: 30px;" alt="logo"></a>
+                        <a href="#"><img src="{{asset('images/deepaklogo.jpg')}}" style="border: 2px solid #c54141;width: 134px;border-radius: 30px;" alt="logo"></a>
 
-                </strong><!-- logo -->
+                    </strong><!-- logo -->
 
-            </div>
+                </div>
 
-            <div class="col-md-8 nav-mind">
+                <div class="col-md-8 nav-mind">
 
 
 
-                <!-- block search -->
+                    <!-- block search -->
 
-                <!-- <div class="block-search">
+                    <div class="block-search">
 
-                    <div class="block-content">
-
-                        <div class="categori-search  ">
+                        <div class="block-content">
+                            <div class="categori-search  ">
+                                <label>Search Products</label>
+                            </div>
+                            <!-- <div class="categori-search  ">
 
                             <select data-placeholder="All Categories" class="chosen-select categori-search-option">
                                 <option value="">All Categories</option>
@@ -166,18 +167,127 @@
                                 </optgroup>
                             </select>
 
+                        </div> -->
+
+                            <div class="
+                        form-search">
+
+                                <form action="{{route('search')}}" method="GET" name="search-form">
+
+                                    <div class="box-group">
+
+                                        <input type="text" name="query" id="query" class="form-control" value="{{request()->input('query')}}" placeholder="Searh entire store here...">
+
+                                        <button class="btn btn-search" type="submit"><span>search</span></button>
+
+                                    </div>
+
+                                </form>
+
+                            </div>
+
                         </div>
 
-                        <div class="
-                        form-search">
+                    </div>
+                    <!-- block search -->
+
+                </div>
+
+                <div class="col-md-2 nav-right">
+
+                    <!-- block mini cart -->
+
+                    <div class="block-minicart dropdown">
+
+
+
+                        <a class="minicart" href="#">
+
+                            <span class="counter qty">
+
+                                <span class="cart-icon"><i class="fa fa-shopping-bag" aria-hidden="true"></i></span>
+                                @if (Cart::instance('default')->count() > 0)
+                                <span class="counter-number">{{Cart::instance('default')->count()}}</span>
+                                @endif
+                            </span>
+
+                            <span class="counter-your-cart">
+
+                                <span class="counter-label">Your Cart:</span>
+
+                                <span class="counter-price">Rs.{{Cart::subtotal()}}</span>
+
+                            </span>
+
+                        </a>
+
+                        <div class="parent-megamenu">
 
                             <form>
 
-                                <div class="box-group">
+                                <div class="minicart-content-wrapper">
 
-                                    <input type="text" class="form-control" placeholder="Searh entire store here...">
+                                    <div class="subtitle">
+                                        @if (Cart::instance('default')->count() > 0)
+                                        You have <span>{{Cart::instance('default')->count()}}</span> item(s) in your cart
+                                        @endif
+                                    </div>
 
-                                    <button class="btn btn-search" type="button"><span>search</span></button>
+                                    <div class="minicart-items-wrapper">
+
+                                        <ol class="minicart-items">
+
+                                            @foreach (Cart::content() as $item)
+
+                                            <li class="product-inner">
+
+                                                <div class="product-thumb style1">
+
+                                                    <div class="thumb-inner">
+
+                                                        <a href="#"><img src="{{$item->options->url}}" alt="c2"></a>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="product-innfo">
+
+                                                    <div class="product-name"><a href="#">{{$item->name}}</a></div>
+
+                                                    <!-- <a href="#" class="remove"><i class="fa fa-times" aria-hidden="true"></i></a> -->
+
+                                                    <span class="price">
+
+                                                        <ins>Rs.{{$item->price}}</ins>
+
+                                                        <del>{{$item->discounted_price}}</del>
+
+                                                    </span>
+
+                                                </div>
+
+                                            </li>
+                                            @endforeach
+                                        </ol>
+
+                                    </div>
+
+                                    <div class="subtotal">
+
+                                        <span class="label">Total :</span>
+
+                                        <span class="cartprice">Rs.{{Cart::subtotal()}}</span>
+
+                                    </div>
+
+                                    <div class="actions">
+
+                                        <a class="btn btn-viewcart" href="{{url('/cart')}}">View cart</a>
+
+                                        <a class="btn btn-checkout" href="{{url('/checkout')}}">Checkout</a>
+
+                                    </div>
 
                                 </div>
 
@@ -185,313 +295,130 @@
 
                         </div>
 
-                    </div>
+                    </div><!-- block mini cart -->
 
-                </div> -->
-                <!-- block search -->
+                    <a href="#" class="hidden-md search-hidden"><span class="pe-7s-search" disabled></span></a>
 
-            </div>
-
-            <div class="col-md-2 nav-right">
-
-                <!-- block mini cart -->
-
-                <div class="block-minicart dropdown">
+                    <a class="wishlist-minicart" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
 
 
 
-                    <a class="minicart" href="#">
-
-                        <span class="counter qty">
-
-                            <span class="cart-icon"><i class="fa fa-shopping-bag" aria-hidden="true"></i></span>
-                            @if (Cart::instance('default')->count() > 0)
-                            <span class="counter-number">{{Cart::instance('default')->count()}}</span>
-                            @endif
-                        </span>
-
-                        <span class="counter-your-cart">
-
-                            <span class="counter-label">Your Cart:</span>
-
-                            <span class="counter-price">Rs.{{Cart::subtotal()}}</span>
-
-                        </span>
-
-                    </a>
-
-                    <div class="parent-megamenu">
-
-                        <form>
-
-                            <div class="minicart-content-wrapper" >
-
-                                <div class="subtitle">
-                                @if (Cart::instance('default')->count() > 0)
-                                    You have <span>{{Cart::instance('default')->count()}}</span> item(s) in your cart
-                                @endif
-                                </div>
-
-                                <div class="minicart-items-wrapper">
-
-                                    <ol class="minicart-items">
-
-                                    @foreach (Cart::content() as $item)
-
-                                        <li class="product-inner">
-
-                                            <div class="product-thumb style1">
-
-                                                <div class="thumb-inner">
-
-                                                    <a href="#"><img src="{{$item->options->url}}" alt="c2"></a>
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="product-innfo">
-
-                                                <div class="product-name"><a href="#">{{$item->name}}</a></div>
-
-                                                <!-- <a href="#" class="remove"><i class="fa fa-times" aria-hidden="true"></i></a> -->
-
-                                                <span class="price">
-
-                                                    <ins>Rs.{{$item->price}}</ins>
-
-                                                    <del>{{$item->discounted_price}}</del>
-
-                                                </span>
-
-                                            </div>
-
-                                        </li>
-                                    @endforeach
-                                    </ol>
-
-                                </div>
-
-                                <div class="subtotal">
-
-                                    <span class="label">Total :</span>
-
-                                    <span class="cartprice">Rs.{{Cart::subtotal()}}</span>
-
-                                </div>
-
-                                <div class="actions">
-
-                                    <a class="btn btn-viewcart" href="{{url('/cart')}}">View cart</a>
-
-                                    <a class="btn btn-checkout" href="{{url('/checkout')}}">Checkout</a>
-
-                                </div>
-
-                            </div>
-
-                        </form>
-
-                    </div>
-
-                </div><!-- block mini cart -->
-
-                <a href="#" class="hidden-md search-hidden"><span class="pe-7s-search" disabled></span></a>
-
-                <a class="wishlist-minicart" href="#"><i class="fa fa-heart-o" aria-hidden="true"></i></a>
-
-
+                </div>
 
             </div>
 
         </div>
 
-    </div>
+    </div><!-- header-content -->
 
-</div><!-- header-content -->
+    <!-- header-menu-bar -->
 
-<!-- header-menu-bar -->
+    <div class="header-menu-bar header-sticky">
 
-<div class="header-menu-bar header-sticky">
+        <div class="header-menu-nav menu-style-2">
 
-    <div class="header-menu-nav menu-style-2">
+            <div class="container">
 
-        <div class="container">
+                <div class="header-menu-nav-inner">
 
-            <div class="header-menu-nav-inner">
+                    <div id="box-vertical-megamenus" class="box-vertical-megamenus nav-toggle-cat">
 
-                <div id="box-vertical-megamenus" class="box-vertical-megamenus nav-toggle-cat">
+                        <h4 class="title active">
 
-                    <h4 class="title active">
+                            <span class="btn-open-mobile home-page">
 
-                        <span class="btn-open-mobile home-page">
+                                <span></span>
 
-                            <span></span>
+                                <span></span>
 
-                            <span></span>
+                                <span></span>
 
-                            <span></span>
+                            </span>
 
-                        </span>
+                            <span class="title-menu">All Departments</span>
 
-                        <span class="title-menu">All Departments</span>
+                        </h4>
 
-                    </h4>
+                        <div class="vertical-menu-content">
+                            <span class="btn-close hidden-md"><i class="fa fa-times" aria-hidden="true"></i></span>
 
-                    <div class="vertical-menu-content" >
-                        <span class="btn-close hidden-md"><i class="fa fa-times" aria-hidden="true"></i></span>
+                            <ul class="vertical-menu-list">
+                                @if($data['allcategory'])
+                                @foreach($data['allcategory'] as $key => $row)
+                                <li><a href="{{ route('shop.category',['id' => $row->id]) }}">{{$row->title}}</a></li>
 
-                        <ul class="vertical-menu-list">
+                                @endforeach
 
-                            <li><a href="#">New Arrivals</a></li>
-                            <li class="menu-item-has-children arrow item-megamenu">
+                                @endif
+                                <!-- <li class="menu-item-has-children arrow item-megamenu">
 
-                                <a href="#" class="dropdown-toggle">Top 100 Best Seller</a>
+                                    <a href="#" class="dropdown-toggle">Top 100 Best Seller</a>
 
-                                <span class="toggle-submenu hidden-md"></span>
+                                    <span class="toggle-submenu hidden-md"></span>
 
-                                <div class="submenu parent-megamenu megamenu">
+                                    <div class="submenu parent-megamenu megamenu">
 
-                                    <div class="row">
+                                        <div class="row">
 
-                                        <div class="submenu-banner submenu-banner-menu-1">
+                                            <div class="submenu-banner submenu-banner-menu-1">
 
-                                            <div class="col-md-4">
+                                                <div class="col-md-4">
 
-                                                <div class="dropdown-menu-info">
+                                                    <div class="dropdown-menu-info">
 
-                                                    <h6 class="dropdown-menu-title">Fashion WoMen’s</h6>
+                                                        <h6 class="dropdown-menu-title">Fashion WoMen’s</h6>
 
-                                                    <div class="dropdown-menu-content">
+                                                        <div class="dropdown-menu-content">
 
-                                                        <ul class="menu">
+                                                            <ul class="menu">
 
-                                                            <li class="menu-item"><a href="#">Leather Jackets</a></li>
+                                                                <li class="menu-item"><a href="#">Leather Jackets</a></li>
 
-                                                            <li class="menu-item"><a href="#">Tablets</a></li>
+                                                                <li class="menu-item"><a href="#">Tablets</a></li>
 
-                                                            <li class="menu-item"><a href="#">Audio & Theater</a></li>
+                                                                <li class="menu-item"><a href="#">Audio & Theater</a></li>
 
-                                                            <li class="menu-item"><a href="#">Bestseller</a></li>
+                                                                <li class="menu-item"><a href="#">Bestseller</a></li>
 
-                                                            <li class="menu-item"><a href="#">Top Rated</a></li>
+                                                                <li class="menu-item"><a href="#">Top Rated</a></li>
 
-                                                            <li class="menu-item"><a href="#">Macbook Air</a></li>
+                                                                <li class="menu-item"><a href="#">Macbook Air</a></li>
 
-                                                            <li class="menu-item"><a href="#">Laptop Pro</a></li>
+                                                                <li class="menu-item"><a href="#">Laptop Pro</a></li>
 
-                                                        </ul>
+                                                            </ul>
 
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="col-md-4">
-
-                                                <div class="dropdown-menu-info">
-
-                                                    <h6 class="dropdown-menu-title">Accessories</h6>
-
-                                                    <div class="dropdown-menu-content">
-
-                                                        <ul class="menu">
-
-                                                            <li class="menu-item"><a href="#">Hair Accessories</a></li>
-
-                                                            <li class="menu-item"><a href="#">Bloves & Mittens</a></li>
-
-                                                            <li class="menu-item"><a href="#">Hats</a></li>
-
-                                                            <li class="menu-item"><a href="#">Tech Accessories</a></li>
-
-                                                            <li class="menu-item"><a href="#">Head Set</a></li>
-
-                                                            <li class="menu-item"><a href="#">Software</a></li>
-
-                                                        </ul>
+                                                        </div>
 
                                                     </div>
 
                                                 </div>
 
-                                            </div>
+                                                <div class="col-md-4">
 
-                                        </div>
+                                                    <div class="dropdown-menu-info">
 
-                                    </div>
+                                                        <h6 class="dropdown-menu-title">Accessories</h6>
 
-                                </div>
+                                                        <div class="dropdown-menu-content">
 
-                            </li>
-                            <li class="menu-item-has-children arrow item-megamenu">
+                                                            <ul class="menu">
 
-                                <a href="#" class="dropdown-toggle">TV & Video</a>
+                                                                <li class="menu-item"><a href="#">Hair Accessories</a></li>
 
-                                <span class="toggle-submenu hidden-md"></span>
+                                                                <li class="menu-item"><a href="#">Bloves & Mittens</a></li>
 
-                                <div class="submenu parent-megamenu megamenu">
+                                                                <li class="menu-item"><a href="#">Hats</a></li>
 
-                                    <div class="row">
+                                                                <li class="menu-item"><a href="#">Tech Accessories</a></li>
 
-                                        <div class="submenu-banner submenu-banner-menu-1">
+                                                                <li class="menu-item"><a href="#">Head Set</a></li>
 
-                                            <div class="col-md-4">
+                                                                <li class="menu-item"><a href="#">Software</a></li>
 
-                                                <div class="dropdown-menu-info">
+                                                            </ul>
 
-                                                    <h6 class="dropdown-menu-title">Fashion WoMen’s</h6>
-
-                                                    <div class="dropdown-menu-content">
-
-                                                        <ul class="menu">
-
-                                                            <li class="menu-item"><a href="#">Leather Jackets</a></li>
-
-                                                            <li class="menu-item"><a href="#">Tablets</a></li>
-
-                                                            <li class="menu-item"><a href="#">Audio & Theater</a></li>
-
-                                                            <li class="menu-item"><a href="#">Bestseller</a></li>
-
-                                                            <li class="menu-item"><a href="#">Top Rated</a></li>
-
-                                                            <li class="menu-item"><a href="#">Macbook Air</a></li>
-
-                                                            <li class="menu-item"><a href="#">Laptop Pro</a></li>
-
-                                                        </ul>
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div>
-
-                                            <div class="col-md-4">
-
-                                                <div class="dropdown-menu-info">
-
-                                                    <h6 class="dropdown-menu-title">Accessories</h6>
-
-                                                    <div class="dropdown-menu-content">
-
-                                                        <ul class="menu">
-
-                                                            <li class="menu-item"><a href="#">Hair Accessories</a></li>
-
-                                                            <li class="menu-item"><a href="#">Bloves & Mittens</a></li>
-
-                                                            <li class="menu-item"><a href="#">Hats</a></li>
-
-                                                            <li class="menu-item"><a href="#">Tech Accessories</a></li>
-
-                                                            <li class="menu-item"><a href="#">Head Set</a></li>
-
-                                                            <li class="menu-item"><a href="#">Software</a></li>
-
-                                                        </ul>
+                                                        </div>
 
                                                     </div>
 
@@ -503,17 +430,96 @@
 
                                     </div>
 
-                                </div>
+                                </li>
+                                <li class="menu-item-has-children arrow item-megamenu">
+
+                                    <a href="#" class="dropdown-toggle">TV & Video</a>
+
+                                    <span class="toggle-submenu hidden-md"></span>
+
+                                    <div class="submenu parent-megamenu megamenu">
+
+                                        <div class="row">
+
+                                            <div class="submenu-banner submenu-banner-menu-1">
+
+                                                <div class="col-md-4">
+
+                                                    <div class="dropdown-menu-info">
+
+                                                        <h6 class="dropdown-menu-title">Fashion WoMen’s</h6>
+
+                                                        <div class="dropdown-menu-content">
+
+                                                            <ul class="menu">
+
+                                                                <li class="menu-item"><a href="#">Leather Jackets</a></li>
+
+                                                                <li class="menu-item"><a href="#">Tablets</a></li>
+
+                                                                <li class="menu-item"><a href="#">Audio & Theater</a></li>
+
+                                                                <li class="menu-item"><a href="#">Bestseller</a></li>
+
+                                                                <li class="menu-item"><a href="#">Top Rated</a></li>
+
+                                                                <li class="menu-item"><a href="#">Macbook Air</a></li>
+
+                                                                <li class="menu-item"><a href="#">Laptop Pro</a></li>
+
+                                                            </ul>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                                <div class="col-md-4">
+
+                                                    <div class="dropdown-menu-info">
+
+                                                        <h6 class="dropdown-menu-title">Accessories</h6>
+
+                                                        <div class="dropdown-menu-content">
+
+                                                            <ul class="menu">
+
+                                                                <li class="menu-item"><a href="#">Hair Accessories</a></li>
+
+                                                                <li class="menu-item"><a href="#">Bloves & Mittens</a></li>
+
+                                                                <li class="menu-item"><a href="#">Hats</a></li>
+
+                                                                <li class="menu-item"><a href="#">Tech Accessories</a></li>
+
+                                                                <li class="menu-item"><a href="#">Head Set</a></li>
+
+                                                                <li class="menu-item"><a href="#">Software</a></li>
+
+                                                            </ul>
+
+                                                        </div>
+
+                                                    </div>
+
+                                                </div>
+
+                                            </div>
+
+                                        </div>
+
+                                    </div>
+
+                                </li> -->
+
+                                <!-- <li><a href="#">Accessories</a>
 
                             </li>
 
-                            <li><a href="#">Accessories</a>
+                            <li><a href="#">Audio & Theater</a></li> -->
 
-                            </li>
-
-                            <li><a href="#">Audio & Theater</a></li>
-
-                            <li class="menu-item-has-children arrow item-megamenu">
+                                <!-- <li class="menu-item-has-children arrow item-megamenu">
 
                                 <a href="#" class="dropdown-toggle">Laptop & Computers</a>
 
@@ -603,43 +609,43 @@
 
                             <li><a href="#">Car Electronic & GDP</a></li>
 
-                            <li><a href="#">Virtual Reality</a></li>
+                            <li><a href="#">Virtual Reality</a></li> -->
 
-                        </ul>
+                            </ul>
+
+                        </div>
 
                     </div>
 
-                </div>
+
+                    <div class="header-menu header-menu-resize">
+
+                        <ul class="header-nav tyrion-nav">
+                            <li class="btn-close hidden-md"><i class="fa fa-times" aria-hidden="true"></i></li>
+
+                            <li class="menu-item-has-children ">
+
+                                <a href="/" class="dropdown-toggle">Home</a>
 
 
-                <div class="header-menu header-menu-resize">
+                            </li>
 
-                    <ul class="header-nav tyrion-nav">
-                        <li class="btn-close hidden-md"><i class="fa fa-times" aria-hidden="true"></i></li>
+                            <li class="menu-item-has-children ">
 
-                        <li class="menu-item-has-children ">
+                                <a href="{{url('/shop')}}" class="dropdown-toggle">Shop</a>
 
-                            <a href="/" class="dropdown-toggle">Home</a>
-
-
-                        </li>
-
-                        <!-- <li class="menu-item-has-children ">
-
-                            <a href="{{url('/shop')}}" class="dropdown-toggle">Shop</a>
-
-                            <span class="toggle-submenu hidden-md"></span>
+                                <span class="toggle-submenu hidden-md"></span>
 
 
-                        </li> -->
+                            </li>
 
-                        <li class="menu-item-has-children ">
+                            <li class="menu-item-has-children ">
 
-                            <a href="{{url('/cart')}}" class="dropdown-toggle">Cart</a>
+                                <a href="{{url('/cart')}}" class="dropdown-toggle">Cart</a>
 
-                            <span class="toggle-submenu hidden-md"></span>
+                                <span class="toggle-submenu hidden-md"></span>
 
-                            <!-- <ul class="submenu parent-megamenu">
+                                <!-- <ul class="submenu parent-megamenu">
                                 <li class="menu-item">
                                     <a href="checkout.html">Checkout</a>
                                 </li>
@@ -654,52 +660,52 @@
                                 </li>
                             </ul> -->
 
-                        </li>
+                            </li>
 
-                        <li>
+                            <li>
 
-                            <a href="{{url('/contact')}}" class="dropdown-toggle">Contact Us</a>
+                                <a href="{{url('/contact')}}" class="dropdown-toggle">Contact Us</a>
 
-                            <span class="toggle-submenu hidden-md"></span>
+                                <span class="toggle-submenu hidden-md"></span>
 
-                        </li>
+                            </li>
 
-                        <li class="menu-item-has-children ">
+                            <li class="menu-item-has-children ">
 
-                            <a href="{{url('/login')}}" class="dropdown-toggle">Login</a>
+                                <a href="{{url('/login')}}" class="dropdown-toggle">Login</a>
 
-                            <span class="toggle-submenu hidden-md"></span>
+                                <span class="toggle-submenu hidden-md"></span>
 
 
 
-                        </li>
+                            </li>
 
-                    </ul>
+                        </ul>
 
-                </div>
+                    </div>
 
-                <span data-action="toggle-nav" class="menu-on-mobile hidden-md">
+                    <span data-action="toggle-nav" class="menu-on-mobile hidden-md">
 
-                    <span class="btn-open-mobile home-page">
+                        <span class="btn-open-mobile home-page">
 
-                        <span></span>
+                            <span></span>
 
-                        <span></span>
+                            <span></span>
 
-                        <span></span>
+                            <span></span>
+
+                        </span>
+
+                        <span class="title-menu-mobile">Main menu</span>
 
                     </span>
 
-                    <span class="title-menu-mobile">Main menu</span>
-
-                </span>
+                </div>
 
             </div>
 
         </div>
 
     </div>
-
-</div>
 
 </header>

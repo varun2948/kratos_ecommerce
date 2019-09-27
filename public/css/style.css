@@ -1472,7 +1472,7 @@ input[type=password] {
 
 	color: #666;
 
-	padding-left: 41px;
+	/* padding-left: 41px; */
 
 }
 .chosen-container .chosen-results li.highlighted {

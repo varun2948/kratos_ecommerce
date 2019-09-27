@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 use App\Models\Products;
 use App\Models\Slider;
 use App\Models\Advertisement;
-use App\Models\Category;
+use App\Models\Cat;
+use DB;
 
 class FrontController extends Controller
 {
@@ -16,8 +17,7 @@ class FrontController extends Controller
      * @return void
      */
     public function __construct()
-    {
-    }
+    { }
 
     /**
      * Show the application dashboard.
@@ -26,20 +26,22 @@ class FrontController extends Controller
      */
     public function index()
     {
-        $data =[];
-        $data['rows'] =Products::select('*')->get();
 
-        $data['rowdesc'] =Products::orderBy('id', 'DESC')->select('*')->get();
+        $data = [];
+        $data['rows'] = Products::inRandomOrder()->select('*')->get();
+
+        $data['rowdesc'] = Products::where('each_feature_product', '1')->inRandomOrder()->get();
+
+        $data['allcategory'] = Cat::select('*')->get(); //Category::select('*')->get();
+        // dd('Varun');
+        $data['slider'] = Slider::select('*')->get();
+
+        $data['adverttop'] = Advertisement::select('*')->offset(0)->limit(2)->get();
+        $data['advertbottom'] = Advertisement::select('*')->offset(2)->limit(2)->get();
+        $data['category'] = Cat::select('*')->get();
 
 
-        $data['slider'] =Slider::select('*')->get();
-
-        $data['advert']= Advertisement::select('*')->get();
-
-        $data['category']= Category::select('*')->get();
-
-
-        return view('welcome',compact('data'));
+        return view('welcome', compact('data'));
     }
 
     public function shopview()
@@ -54,7 +56,9 @@ class FrontController extends Controller
 
     public function contactview()
     {
-        return view('Products.contactus');
+        $data = [];
+        $data['allcategory'] = Cat::select('*')->get();
+        return view('Products.contactus', compact('data'));
     }
 
     public function userloginview()
@@ -62,12 +66,13 @@ class FrontController extends Controller
         return view('Products.userlogin');
     }
 
-    public function productdetail(Request $request,$id)
+    public function productdetail(Request $request, $id)
     {
-        $data= [];
-        $data['row'] = Products::where('id',$id)->first();
+        $data = [];
+        $data['allcategory'] = Cat::select('*')->get();
+        $data['row'] = Products::where('id', $id)->first();
         // dd($data['row']);
-        if(!$data['row']) {
+        if (!$data['row']) {
             $request->session()->flash('error_message', 'Invalid Request.');
             return redirect()->route('front');
         }
@@ -75,8 +80,6 @@ class FrontController extends Controller
         // status == 1?'active':'in-active';
 
 
-        return view('Products.productdetail',compact('data'));
-
+        return view('Products.productdetail', compact('data'));
     }
-
 }
