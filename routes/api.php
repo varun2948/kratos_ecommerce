@@ -20,4 +20,4 @@ Route::get('articles', 'ApiController@index');
 Route::get('articles/{id}', 'ApiController@show');
 Route::post('articles', 'ApiController@store');
 Route::put('updatearticles/{id}', 'ApiController@update');
-Route::delete('deletearticles/{id}', 'ApiControllerr@delete');
+Route::delete('deletearticles/{id}', 'ApiController@delete');

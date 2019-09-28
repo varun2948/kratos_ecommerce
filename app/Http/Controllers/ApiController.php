@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Advertisement;
 use Illuminate\Http\Request;
-use App\Http\Requests\Advertisement\AddFromValidation;
 use App\Models\RegisterUser;
 
 class ApiController extends Controller

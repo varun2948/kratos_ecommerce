@@ -38,6 +38,9 @@
             background-color: #dff0d8;
             border-color: #d6e9c6;
         }
+        .product-item.style1 .product-thumb {
+            height: 209px;
+        }
         </style>
         @yield('css')
 <!--
